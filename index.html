@@ -4,62 +4,160 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Abhinav Dhakal</title>
-  <style>
-    :root {
-      --bg-color: #0d0d0d;
-      --text-color: #e0e0e0;
-      --accent-color: #7aa2f7;
-      --font-mono: 'Courier New', Courier, monospace;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: var(--font-mono);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 2rem;
-    }
-
-    main {
-      max-width: 600px;
-      width: 100%;
-    }
-
-    h1 {
-      font-size: 2rem;
-      color: var(--accent-color);
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header id="header">
+    <h1>Abhinav Dhakal</h1>
+    <span class="theme-toggle" onclick="toggleTheme()">change to light</span>
+  </header>
   <main>
-    <h1>~ /home/abhinav</h1>
-    <p>Welcome to my site. This site is under construction. Check back soon!</p>
-    <p><a href="https://github.com/abhinavdhakal" target="_blank">View my GitHub</a></p>
+    <!-- Landing -->
+    <section class="section" id="landing">
+      <div class="landing-text">~ /home/abhinav</div>
+      <p>Hello! I'm Abhinav, a Computer Engineering student at Mississippi State University. I enjoy building software and hardware projects that solve practical problems and learning new technologies along the way.</p>
+
+
+      <p>Welcome to my personal site. I’m currently updating projects!</p>
+    </section>
+
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+      <div class="landing-text">~ /home/abhinav/projects</div>
+      <div class="projects">
+        <div class="project-card">
+          <h3><a href="musicdl-cli.html">musicdl-cli</a> | Node.js, Spotify API, Last.fm API, FFmpeg</h3>
+          <p>
+            A simple CLI tool to download music from Spotify playlists, albums, or tracks.<br>
+            Uses freely available music videos as audio sources and Spotify API for accurate metadata.<br>
+            Supports parallel downloads, FFmpeg audio conversion, automatic metadata tagging, and synced lyrics.
+          </p>
+          <p><a href="https://www.npmjs.com/package/musicdl-cli" target="_blank">npm</a> | 
+          <a href="https://github.com/abhinavdhakal/musicdl-cli" target="_blank">GitHub</a></p>
+        </div>
+          <div class="project-card">
+            <h3><a href="ear-wearable.html">Low-Power Ear Wearable Prototype</a> | Circuitpython, PCB, BLE, USB-C</h3>
+            <p>
+              Team project at Athlete Engineering.<br>
+              Built a wearable for ear-based temperature and environment sensing.<br>
+              My role: hardware integration and protocol design.
+            </p>
+            <p><a href="ear-wearable.html">Technical Details</a></p>
+          </div>
+
+        <div class="project-card">
+          <h3><a href="fullstack-messaging.html">FullStack Messaging App</a> | React, Node.js, Express, MongoDB</h3>
+          <p>Full-stack (MERN) WebApp with JWT authentication, end-to-end encrypted real-time messaging via Socket.IO. Responsive UI using Tailwind CSS.</p>
+          <p><a href="https://github.com/abhinavdhakal/real-time-chat-app" target="_blank">GitHub</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+      <div class="landing-text">~ /home/abhinav/experience</div>
+      <div class="experience-list">
+        <div class="exp-item">
+          <span class="exp-date">$ Jan 2025 – May 2025</span>
+          <span> Engineering Co-op — Hunter Engineering, Raymond, MS</span><br>
+          <span class="exp-desc">Database, automation, and hardware/software integration for production and inventory.</span>
+        </div>
+        <div class="exp-item">
+          <span class="exp-date">$ Jun 2025 – Present</span>
+          <span> Undergraduate Research Assistant — Building Construction Science Dept, MSU</span><br>
+          <span class="exp-desc">Health monitoring device development and data pipeline for construction environments.</span>
+        </div>
+        <div class="exp-item">
+          <span class="exp-date">$ Jul 2024 – Present</span>
+          <span> Undergraduate Researcher — Athlete Engineering Lab, MSU</span><br>
+          <span class="exp-desc">Wearable sensor design, real-time data visualization, and BLE/USB protocols.</span>
+        </div>
+        <div class="exp-item">
+          <span class="exp-date">$ Jun 2025 – Present</span>
+          <span> Undergraduate Mentor — SmartCT NSF Project, MSU</span><br>
+          <span class="exp-desc">Mentored students on AI/ML and robotics projects.</span>
+        </div>
+        <div class="exp-item">
+          <span class="exp-date">$ Jul 2024 – Dec 2024</span>
+          <span> Undergraduate Researcher — MSU</span><br>
+          <span class="exp-desc">Built ML models (Cubist, Linear Regression, Random Forest) to predict soil properties from spectrometer data.</span>
+        </div>
+      </div>
+    </section>
+    <!-- About Section -->
+    <section class="section" id="about">
+      <div class="landing-text">~ /home/abhinav/about</div>
+      <h3>Education</h3>
+      <div class="education">
+        <div class="edu-item">Mississippi State University, BSc Computer Engineering, CGPA: 3.88/4.00</div>
+        <div class="edu-item">President’s Scholar</div>
+      </div>
+
+      <h3>Technical Skills</h3>
+      <div class="skills" style="display:block;">
+        <div style="margin-bottom:1rem;">
+          <span class="skill">Python</span>
+          <span class="skill">C++</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">SQL</span>
+          <span class="skill">HTML/CSS</span>
+        </div>
+        <div style="margin-bottom:1rem;">
+          <span class="skill">React</span>
+          <span class="skill">Node.js</span>
+          <span class="skill">Express</span>
+          <span class="skill">PyQt</span>
+        </div>
+        <div style="margin-bottom:1rem;">
+          <span class="skill">ESP32</span>
+          <span class="skill">Arduino</span>
+          <span class="skill">BLE</span>
+          <span class="skill">I2C/SPI</span>
+          <span class="skill">Sensor Integration</span>
+          <span class="skill">KiCad PCB Design</span>
+          <span class="skill">3D Printing</span>
+        </div>
+        <div>
+          <span class="skill">MongoDB</span>
+          <span class="skill">SQLite</span>
+          <span class="skill">TensorFlow</span>
+          <span class="skill">Scikit-Learn</span>
+          <span class="skill">Git</span>
+          <span class="skill">Docker</span>
+          <span class="skill">Linux</span>
+        </div>
+      </div>
+    </section>
+
+
+
+        <!-- Contact Section -->
+    <section class="section" id="contact">
+      <div class="landing-text">~ /home/abhinav/contact</div>
+      <p>/email → <a href="mailto:ad2432@msstate.edu">ad2432@msstate.edu</a>, <a href="mailto:abhinavdhakal2@gmail.com">abhinavdhakal2@gmail.com</a></p>
+      <p>/github → <a href="https://github.com/abhinavdhakal" target="_blank">github.com/abhinavdhakal</a></p>
+      <p>/linkedin → <a href="https://www.linkedin.com/in/abhinavdhakal" target="_blank">linkedin.com/in/abhinavdhakal</a></p>
+    </section>
+
   </main>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("light-theme");
+      document.getElementById("header").classList.toggle("light-theme");
+
+      // Update the toggle text
+      const toggle = document.querySelector(".theme-toggle");
+      if (document.body.classList.contains("light-theme")) {
+        toggle.textContent = "change to dark";
+      } else {
+        toggle.textContent = "change to light";
+      }
+    }
+  </script>
 </body>
+</html>
+</body>
+</html>
 </html>

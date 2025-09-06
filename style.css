@@ -1,0 +1,239 @@
+:root {
+  /* Dark theme - Gruvbox Dark Medium */
+  --bg-color-dark: #282828;
+  --text-color-dark: #ebdbb2;
+  --accent-color-dark: #fabd2f;
+  --border-color-dark: #3c3836;
+  --link-color-dark: #83a598; /* new: link color for dark theme */
+
+  /* Light theme - Gruvbox Light Hard (high contrast) */
+  --bg-color-light: #fbf1c7; /* bright background */
+  --text-color-light: #3c3836; /* very dark text */
+  --accent-color-light: #282828; /* strong readable blue accent */
+  --border-color-light: #282828; /* slightly darker border for definition */
+  --link-color-light: #076678; /* new: link color for light theme */
+
+  --font-mono: "Courier New", Courier, monospace;
+  --transition-speed: 0.3s;
+}
+
+/* Body & Theme */
+body {
+  margin: 0;
+  font-family: var(--font-mono);
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+  transition: background-color var(--transition-speed),
+    color var(--transition-speed);
+  line-height: 1.6;
+}
+
+body.light-theme {
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+}
+
+/* Links */
+a {
+  color: var(--link-color-dark);
+  text-decoration: none;
+  transition: text-decoration var(--transition-speed);
+}
+
+body.light-theme a {
+  color: var(--link-color-light);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border-color-dark);
+}
+
+body.light-theme header {
+  border-color: var(--border-color-light);
+}
+
+/* Main content */
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+h1,
+h2 {
+  color: var(--accent-color-dark);
+}
+
+body.light-theme h1,
+body.light-theme h2 {
+  color: var(--accent-color-light);
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+/* About Section */
+.skills,
+.education {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill,
+.edu-item {
+  background-color: rgba(250, 189, 47, 0.1);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--accent-color-dark);
+}
+
+body.light-theme .skill,
+body.light-theme .edu-item {
+  background-color: rgba(181, 118, 20, 0.1);
+  color: var(--accent-color-light);
+}
+
+/* Projects */
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.project-card {
+  padding: 1rem;
+  border: 1px solid var(--border-color-dark);
+  border-radius: 6px;
+  background-color: rgba(250, 250, 250, 0.02);
+  transition: background-color var(--transition-speed),
+    border-color var(--transition-speed);
+}
+
+body.light-theme .project-card {
+  border-color: var(--border-color-light);
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.project-card h3 {
+  margin: 0 0 0.3rem 0;
+}
+
+/* Text-based thumbnail */
+.thumbnail {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  background-color: rgba(250, 250, 250, 0.05);
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+body.light-theme .thumbnail {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Theme toggle */
+.theme-toggle {
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--accent-color-dark);
+}
+
+body.light-theme .theme-toggle {
+  color: var(--accent-color-light);
+}
+
+/* Landing page text style */
+.landing-text {
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  color: var(--accent-color-dark);
+  margin-bottom: 1rem;
+}
+
+body.light-theme .landing-text {
+  color: var(--accent-color-light);
+}
+
+/* CLI Styles */
+.cli-figure {
+  display: block;
+  margin: 2rem auto;
+  max-width: 900px;
+  border: 1.5px solid var(--accent-color-dark);
+  border-radius: 8px;
+  background: var(--bg-color-dark);
+  padding: 0.5rem;
+}
+
+body.light-theme .cli-figure {
+  border-color: var(--accent-color-light);
+  background: var(--bg-color-light);
+}
+
+.cli-figure-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  max-width: 500px;
+  border: 1.5px solid var(--accent-color-dark);
+  border-radius: 8px;
+  background: var(--bg-color-dark);
+  padding: 0.5rem;
+}
+
+body.light-theme .cli-figure-row {
+  border-color: var(--accent-color-light);
+  background: var(--bg-color-light);
+}
+
+.cli-caption {
+  text-align: center;
+  margin-top: 0.5rem;
+  color: var(--accent-color-dark);
+  font-size: 1rem;
+}
+
+body.light-theme .cli-caption {
+  color: var(--accent-color-light);
+}
+
+/* Experience Section */
+.experience-list {
+  font-family: var(--font-mono);
+}
+
+.exp-item {
+  margin-bottom: 1rem;
+}
+
+.exp-date {
+  color: var(--accent-color-dark);
+  font-weight: bold;
+}
+
+body.light-theme .exp-date {
+  color: var(--accent-color-light);
+}
+
+.exp-desc {
+  color: #bdae93;
+}
+
+body.light-theme .exp-desc {
+  color: #7c6f64;
+}

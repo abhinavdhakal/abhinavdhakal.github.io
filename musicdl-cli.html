@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>musicdl-cli | Abhinav Dhakal</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="index.html">Abhinav Dhakal</a></h1>
+      <span class="theme-toggle" onclick="toggleTheme()">Toggle Theme</span>
+    </header>
+    <main>
+      <a href="index.html" class="back-button">← Back to Home</a>
+
+      <h2>musicdl-cli</h2>
+      <p>
+        <strong>A simple CLI Spotify music downloader.</strong><br>
+        <br>
+        <b>musicdl-cli</b> lets you download tracks, albums, and playlists from Spotify by fetching freely available music videos as audio sources and using the Spotify API for accurate metadata. Note: Due to remixes and edits on YouTube, the downloaded audio may occasionally differ from the original track.
+      </p>
+
+      <p>
+        <a href="https://www.npmjs.com/package/musicdl-cli" target="_blank"
+          >npm package</a
+        > | 
+        <a href="https://github.com/abhinavdhakal/musicdl-cli" target="_blank"
+          >GitHub repository</a
+        >
+      </p>
+            <figure class="cli-figure">
+        <img
+          src="image/musicdl-cli_0.png"
+          alt="musicdl-cli screenshot"
+          style="display:block; margin:0 auto; max-width:500px; width:100%; height:auto;"
+        />
+        <figcaption class="cli-caption">Running on CLI</figcaption>
+      </figure>
+
+      <div class="cli-figure cli-figure-row">
+        <figure style="margin:0; flex:1;">
+          <img
+            src="image/musicdl-cli_1.png"
+            alt="musicdl-cli additional screenshot 1"
+            style="display:block; margin:0 auto; max-height:120px; width:auto; height:100%;"
+          />
+          <figcaption class="cli-caption">Album Cover</figcaption>
+        </figure>
+        <figure style="margin:0 0 0 1rem; flex:1;">
+          <img
+            src="image/musicdl-cli_2.png"
+            alt="musicdl-cli additional screenshot 2"
+            style="display:block; margin:0 auto; max-height:120px; width:auto; height:100%;"
+          />
+          <figcaption class="cli-caption">Metadata.</figcaption>
+        </figure>
+      </div>
+
+      <h3>Installation</h3>
+      <p>
+        <b>Using npm:</b><br>
+        <code>$ sudo npm i musicdl-cli -g</code>
+      </p>
+      <p>
+        <b>Using Git:</b><br>
+        <code>
+          $ git clone https://github.com/AbhinavDhakal/musicdl-cli.git<br>
+          $ cd musicdl-cli<br>
+          $ npm install<br>
+          $ sudo npm link
+        </code>
+      </p>
+
+      <h3>Configuration</h3>
+      <p>
+        To use musicdl-cli, you need a Spotify client ID and client secret. <a href="https://developer.spotify.com/my-applications/" target="_blank">Get them here</a>.<br>
+        After obtaining your credentials, run:<br>
+        <code>$ musicdl-cli -c</code><br>
+        This will show the config file location. Edit the config file to add your Spotify client ID and secret. You can also set your preferred download location.
+      </p>
+
+      <h3>Usage</h3>
+      <p>
+        <code>musicdl-cli [options] &lt;song name or Spotify URL&gt;</code>
+      </p>
+      <ul>
+        <li><code>-h, --help</code> &mdash; Show help message</li>
+        <li><code>-c</code> &mdash; Show config file location</li>
+        <li><code>-d &lt;number&gt;</code> &mdash; Set number of parallel downloads (default: 2)</li>
+        <li><code>-l</code> &mdash; Download synced lyrics (if available)</li>
+      </ul>
+
+      <h4>Examples</h4>
+      <pre>
+Search and download a song:
+$ musicdl-cli "lost frank ocean"
+
+Download a Spotify album:
+$ musicdl-cli "https://open.spotify.com/album/34GQP3dILpyCN018y2k61L"
+
+Download a Spotify playlist:
+$ musicdl-cli "https://open.spotify.com/playlist/any-playlist"
+
+Download a Spotify track:
+$ musicdl-cli "https://open.spotify.com/track/any-track"
+      </pre>
+
+      <h4>Options</h4>
+      <p></p>
+        <b>Lyrics:</b> Add <code>-l</code> to download synced lyrics.<br>
+        <code>$ musicdl-cli -l "joji i'll see you in 40"</code>
+      </p>
+      <p>
+        <b>Parallel Downloads:</b> Use <code>-d &lt;number&gt;</code> to set the number of parallel downloads (default: 2).<br>
+        <code>$ musicdl-cli -l "https://open.spotify.com/album/34GQP3dILpyCN018y2k61L" -d 3</code>
+      </p>
+
+      <h4>Spotify Credentials</h4>
+      <p>
+        If you don't have a Spotify client ID and secret, <a href="https://developer.spotify.com/my-applications/" target="_blank">sign up for a Spotify developer account</a> and create an app to get your credentials.
+      </p>
+
+      <p>
+        <strong>Tech Stack:</strong> Node.js, Spotify API, Last.fm API, FFmpeg
+      </p>
+
+      <p>
+        An open-source CLI tool on npm for music
+        management, integrating Spotify and Last.fm APIs for metadata
+        enrichment.
+      </p>
+
+
+
+    </main>
+
+    <script>
+      function toggleTheme() {
+        document.body.classList.toggle("light-theme");
+      }
+    </script>
+  </body>
+</html>
+</html>
