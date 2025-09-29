@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JobF1 - Visa-Friendly Job Finder | Abhinav Dhakal</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="header">
+      <h1><a href="index.html">Abhinav Dhakal</a></h1>
+      <span class="theme-toggle" onclick="toggleTheme()">change to light</span>
+    </header>
+    <main>
+      <!-- Project Header -->
+      <section class="section" id="landing">
+        <div class="landing-text">$ cat ~/projects/jobf1/README.md</div>
+        <h1>JobF1 - Visa-Friendly Job Finder</h1>
+
+        <p>
+          As international students, we often spent hours combing through
+          LinkedIn job postings, only to discover that roles required U.S.
+          citizenship or explicitly refused visa sponsorship.
+        </p>
+        <p>
+          <strong>JobF1 fixes that.</strong> It is a Chrome extension that
+          filters LinkedIn job results by posting time, keywords, and job type
+          while automatically flagging sponsorship restrictions. No more wasted
+          time applying to jobs you are not eligible for.
+        </p>
+      </section>
+
+      <!-- Preview -->
+      <section class="section">
+        <h2>Preview</h2>
+        <figure class="cli-figure" style="width: fit-content">
+          <img
+            src="images/jobf1/preview.png"
+            alt="Preview of the JobF1 extension"
+            style="
+              display: block;
+              width: 100%;
+              max-width: 300px;
+              margin: 0 auto;
+              border-radius: 4px;
+            "
+          />
+          <figcaption class="cli-caption">
+            JobF1 panel overlaying LinkedIn job search
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- What It Does -->
+      <section class="section">
+        <h2>What It Does</h2>
+        <ul>
+          <li>
+            Detects visa restrictions in job descriptions (citizenship, ITAR, no
+            sponsorship, etc.)
+          </li>
+          <li>Filters jobs by posting time (5 minutes to 1 month)</li>
+          <li>Supports Boolean keyword search to refine results</li>
+          <li>Filters by job type: internships, full-time, or all positions</li>
+          <li>
+            Displays clear green/red indicators with reasons for sponsorship
+            status
+          </li>
+        </ul>
+      </section>
+
+      <!-- Example -->
+      <section class="section">
+        <h2>Example</h2>
+        <div class="thumbnail">
+          Searching for <strong>Software Engineer Intern</strong>: • Job A →
+          Requires U.S. Citizenship • Job B → Visa-friendly • Job C → States "No
+          sponsorship available" Result: you instantly know which jobs are worth
+          your time.
+        </div>
+      </section>
+
+      <!-- Visual Indicators -->
+      <section class="section">
+        <h2>Visual Indicators</h2>
+        <div class="cli-figure" style="width: fit-content">
+          <figure style="margin: 0 0 0 1rem">
+            <img
+              src="images/jobf1/friendly.png"
+              alt="Visa friendly notification"
+              style="
+                display: block;
+                margin: 0 auto;
+                max-width: 500px;
+                width: 100%;
+                border-radius: 4px;
+              "
+            />
+            <figcaption class="cli-caption">
+              Green notification = visa-friendly or unrestricted job
+            </figcaption>
+          </figure>
+          <figure style="margin: 0 0 0 1rem">
+            <img
+              src="images/jobf1/restriction.png"
+              alt="Visa restriction notification"
+              style="
+                display: block;
+                margin: 0 auto;
+                max-width: 500px;
+                width: 100%;
+                border-radius: 4px;
+              "
+            />
+            <figcaption class="cli-caption">
+              Red notification = job with visa restrictions (citizenship, no
+              sponsorship, ITAR, etc.)
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Install -->
+      <section class="section">
+        <h2>Install</h2>
+        <h3>Manual Setup (Developer Mode)</h3>
+        <ol>
+          <li>Clone or download the repository</li>
+          <li>Open <code>chrome://extensions/</code> in Chrome</li>
+          <li>Enable <strong>Developer Mode</strong> (top-right)</li>
+          <li>
+            Click <strong>Load unpacked</strong> and select the JobF1 folder
+          </li>
+          <li>Pin the extension for quick access</li>
+        </ol>
+      </section>
+
+      <!-- Usage -->
+      <section class="section">
+        <h2>Usage</h2>
+        <ol>
+          <li>Click the JobF1 icon in Chrome</li>
+          <li>
+            Set your filters:
+            <ul>
+              <li>Time posted</li>
+              <li>Keywords (supports Boolean operators)</li>
+              <li>Job type</li>
+              <li>Visa sponsorship check</li>
+            </ul>
+          </li>
+          <li>Apply filters → LinkedIn job listings update instantly</li>
+        </ol>
+      </section>
+
+      <!-- Tech Stack -->
+      <section class="section">
+        <h2>Tech</h2>
+        <div class="skills">
+          <span class="skill">Chrome Extension</span>
+          <span class="skill">Manifest V3</span>
+          <span class="skill">JavaScript (ES6+)</span>
+          <span class="skill">Content Scripts</span>
+          <span class="skill">Local Storage</span>
+        </div>
+      </section>
+
+      <!-- Notes -->
+      <section class="section">
+        <h2>Notes</h2>
+        <ul>
+          <li>Works only on LinkedIn job search pages</li>
+          <li>Runs fully locally — no external servers or data collection</li>
+          <li>
+            Intended for responsible use under LinkedIn's terms of service
+          </li>
+        </ul>
+      </section>
+
+      <!-- License -->
+      <section class="section">
+        <h2>License</h2>
+        <p>MIT License</p>
+      </section>
+
+      <!-- Links -->
+      <section class="section" id="contact">
+        <h2>Links</h2>
+        <p>
+          <a href="https://github.com/abhinavdhakal/jobf1" target="_blank"
+            >📂 GitHub Repository</a
+          >
+        </p>
+        <p><a href="index.html">← Back to Portfolio</a></p>
+      </section>
+    </main>
+
+    <script>
+      function toggleTheme() {
+        document.body.classList.toggle("light-theme");
+        document.getElementById("header").classList.toggle("light-theme");
+
+        const toggle = document.querySelector(".theme-toggle");
+        if (document.body.classList.contains("light-theme")) {
+          toggle.textContent = "change to dark";
+        } else {
+          toggle.textContent = "change to light";
+        }
+      }
+    </script>
+  </body>
+</html>

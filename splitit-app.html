@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SplitIt - Smart Receipt Splitter | Abhinav Dhakal</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="header">
+      <h1><a href="index.html">Abhinav Dhakal</a></h1>
+      <span class="theme-toggle" onclick="toggleTheme()">change to light</span>
+    </header>
+    <main>
+      <!-- Project Header -->
+      <section class="section" id="landing">
+        <div class="landing-text">$ cat ~/projects/splitit/README.md</div>
+        <h1>SplitIt - Smart Receipt Splitter</h1>
+
+        <p>
+          Every time we did groceries as roommates, we waited weeks before
+          splitting the receipt as it was a hassle. By then, nobody remembered
+          who bought what. Arguments started over simple things like
+          <em>"Whose milk was this?"</em> or
+          <em>"Did I even buy cheese last month?"</em>.
+        </p>
+
+        <p>
+          <strong>SplitIt fixes that.</strong> Upload the Walmart PDF receipt
+          after each order, let everyone claim their items, and get an instant,
+          fair breakdown. No more confusion, no more guessing.
+        </p>
+
+        <div style="margin: 2rem 0">
+          <img
+            src="https://img.shields.io/badge/Status-Production%20Ready-green"
+            alt="Project Status"
+            style="margin-right: 1rem"
+          />
+          <a
+            href="https://github.com/abhinavdhakal/splitit"
+            target="_blank"
+            style="margin-right: 1rem"
+            >GitHub Repository</a
+          >
+          <a href="https://splitit-app.netlify.app" target="_blank"
+            >Live Demo</a
+          >
+        </div>
+      </section>
+
+      <!-- What It Does -->
+      <section class="section">
+        <h2>What It Does</h2>
+        <ul>
+          <li>Create or join groups with simple codes</li>
+          <li>Upload Walmart PDF receipts (other formats coming later)</li>
+          <li>Claim items individually or split them with others</li>
+          <li>Tax and tip divided fairly and automatically</li>
+          <li>Clear summary of who owes what</li>
+        </ul>
+      </section>
+
+      <!-- Screenshots -->
+      <section class="section">
+        <h2>Screenshots</h2>
+
+        <figure class="cli-figure" style="width: fit-content">
+          <img
+            src="images/splitit/1.png"
+            alt="Login page"
+            style="
+              display: block;
+              width: 100%;
+              max-width: 820px;
+              margin: 0 auto;
+              border-radius: 4px;
+            "
+          />
+          <figcaption class="cli-caption">
+            Login page where users enter credentials to access the app
+          </figcaption>
+        </figure>
+
+        <figure class="cli-figure" style="width: fit-content">
+          <img
+            src="images/splitit/2.png"
+            alt="Home page"
+            style="
+              display: block;
+              width: 100%;
+              max-width: 820px;
+              margin: 0 auto;
+              border-radius: 4px;
+            "
+          />
+          <figcaption class="cli-caption">
+            Main dashboard showing groups and recent activity
+          </figcaption>
+        </figure>
+
+        <figure class="cli-figure" style="width: fit-content">
+          <img
+            src="images/splitit/3.png"
+            alt="Uploading a receipt"
+            style="
+              display: block;
+              width: 100%;
+              max-width: 820px;
+              margin: 0 auto;
+              border-radius: 4px;
+            "
+          />
+          <figcaption class="cli-caption">
+            Group interface for managing receipts
+          </figcaption>
+        </figure>
+
+        <figure class="cli-figure">
+          <img
+            src="images/splitit/4.png"
+            alt="Claiming items"
+            style="
+              display: block;
+              width: 100%;
+              max-width: 820px;
+              margin: 0 auto;
+              border-radius: 4px;
+            "
+          />
+          <figcaption class="cli-caption">
+            Screen where users can select and claim items from a receipt
+          </figcaption>
+        </figure>
+
+        <figure class="cli-figure" style="width: fit-content">
+          <img
+            src="images/splitit/5.png"
+            alt="Final expense summary"
+            style="
+              display: block;
+              width: 100%;
+              max-width: 820px;
+              margin: 0 auto;
+              border-radius: 4px;
+            "
+          />
+          <figcaption class="cli-caption">
+            Overview of all expenses and balances within the group
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- Example -->
+      <section class="section">
+        <h2>Example</h2>
+        <div class="thumbnail">
+          Total receipt: $47.83 Alice: Milk, Bread, 3 Apples Bob: Cheese, 2
+          Apples Result: Alice pays $32.15, Bob pays $15.68. Weeks later,
+          everyone can still see exactly what they claimed.
+        </div>
+      </section>
+
+      <!-- Setup -->
+      <section class="section">
+        <h2>Setup</h2>
+
+        <h3>Requirements</h3>
+        <ul>
+          <li>Node.js 18+</li>
+          <li>Supabase account</li>
+          <li>Netlify (for hosting)</li>
+        </ul>
+
+        <h3>Database</h3>
+        <ol>
+          <li>Create a new project in Supabase</li>
+          <li>
+            Open the SQL editor and run <code>complete-setup.sql</code> (this
+            sets up all tables and creates the <code>receipts</code> storage
+            bucket)
+          </li>
+          <li>
+            In Supabase, go to
+            <strong>Connect → App Frameworks → Next.js</strong> and copy the
+            provided <code>.env.local</code> variables
+          </li>
+        </ol>
+
+        <h3>Local Development</h3>
+        <ol>
+          <li>
+            Create a <code>.env.local</code> file in the project root and paste
+            your Supabase variables
+            <div class="thumbnail">
+              NEXT_PUBLIC_SUPABASE_URL=your_url
+              NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key
+            </div>
+          </li>
+          <li>
+            Install dependencies
+            <div class="thumbnail">npm install</div>
+          </li>
+          <li>
+            Run the app locally
+            <div class="thumbnail">
+              npm run dev # Open http://localhost:3000
+            </div>
+          </li>
+        </ol>
+
+        <h3>Deploying to Netlify</h3>
+        <ol>
+          <li>Push this project to your own GitHub repository</li>
+          <li>
+            In Netlify, click <strong>New site from Git</strong> and select your
+            repo
+          </li>
+          <li>
+            Under <strong>Site settings → Environment variables</strong>, add
+            the Supabase variables from <code>.env.local</code>
+          </li>
+          <li>
+            Netlify will auto-detect Next.js and use:
+            <div class="thumbnail">npm run build</div>
+          </li>
+          <li>
+            After build, your app will be live at a Netlify URL (you can also
+            set a custom domain)
+          </li>
+        </ol>
+
+        <h3>Connect Supabase and Netlify</h3>
+        <ol>
+          <li>Copy your Netlify site URL</li>
+          <li>
+            In Supabase, go to
+            <strong>Authentication → URL Configuration</strong>
+          </li>
+          <li>Add the Netlify URL to the list of allowed redirect URLs</li>
+          <li>Save changes</li>
+        </ol>
+
+        <p>
+          <strong>You're done</strong> — users can now log in and start
+          splitting receipts.
+        </p>
+      </section>
+
+      <!-- Tech Stack -->
+      <section class="section">
+        <h2>Tech Stack</h2>
+        <div class="skills">
+          <span class="skill">Next.js</span>
+          <span class="skill">React</span>
+          <span class="skill">Tailwind CSS</span>
+          <span class="skill">Supabase</span>
+          <span class="skill">PostgreSQL</span>
+          <span class="skill">PDF.js</span>
+          <span class="skill">Netlify</span>
+        </div>
+      </section>
+
+      <!-- Notes -->
+      <section class="section">
+        <h2>Current Limitations & Future Plans</h2>
+        <ul>
+          <li>Works only with Walmart PDF receipts right now</li>
+          <li>
+            Support for scanning printed receipts and other stores is planned
+          </li>
+          <li>Mobile app version in consideration</li>
+        </ul>
+      </section>
+
+      <!-- Links -->
+      <section class="section" id="contact">
+        <h2>Links</h2>
+        <p>
+          <a href="https://github.com/abhinavdhakal/splitit" target="_blank"
+            >📂 GitHub Repository</a
+          >
+        </p>
+        <p>
+          <a href="https://splitit-app.netlify.app" target="_blank"
+            >🚀 Live Demo</a
+          >
+        </p>
+        <p><a href="index.html">← Back to Portfolio</a></p>
+      </section>
+    </main>
+
+    <script>
+      function toggleTheme() {
+        document.body.classList.toggle("light-theme");
+        document.getElementById("header").classList.toggle("light-theme");
+
+        // Update the toggle text
+        const toggle = document.querySelector(".theme-toggle");
+        if (document.body.classList.contains("light-theme")) {
+          toggle.textContent = "change to dark";
+        } else {
+          toggle.textContent = "change to light";
+        }
+      }
+    </script>
+  </body>
+</html>
