@@ -9,7 +9,7 @@
   <body>
     <header>
       <h1><a href="index.html">Abhinav Dhakal</a></h1>
-      <span class="theme-toggle" onclick="toggleTheme()">Toggle Theme</span>
+  <span class="theme-toggle" onclick="toggleTheme()">change to light</span>
     </header>
     <main>
       <a href="index.html" class="back-button">← Back to Home</a>
@@ -138,6 +138,18 @@ $ musicdl-cli "https://open.spotify.com/track/any-track"
     <script>
       function toggleTheme() {
         document.body.classList.toggle("light-theme");
+
+        const header = document.querySelector("header");
+        if (header) {
+          header.classList.toggle("light-theme");
+        }
+
+        const toggle = document.querySelector(".theme-toggle");
+        if (toggle) {
+          toggle.textContent = document.body.classList.contains("light-theme")
+            ? "change to dark"
+            : "change to light";
+        }
       }
     </script>
   </body>

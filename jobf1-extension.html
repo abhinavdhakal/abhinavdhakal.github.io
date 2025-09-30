@@ -72,11 +72,14 @@
       <!-- Example -->
       <section class="section">
         <h2>Example</h2>
-        <div class="thumbnail">
-          Searching for <strong>Software Engineer Intern</strong>: • Job A →
-          Requires U.S. Citizenship • Job B → Visa-friendly • Job C → States "No
-          sponsorship available" Result: you instantly know which jobs are worth
-          your time.
+        <div class="cli-figure" style="width: fit-content">
+          Searching for <strong>Software Engineer Intern</strong>: 
+          <ul>
+            <li>Job A → Requires U.S. Citizenship</li>
+            <li>Job B → Visa-friendly</li>
+            <li>Job C → States "No sponsorship available"</li>
+          </ul>
+          Result: you instantly know which jobs are worth your time.
         </div>
       </section>
 
@@ -100,6 +103,9 @@
               Green notification = visa-friendly or unrestricted job
             </figcaption>
           </figure>
+        </div>
+
+  <div class="cli-figure" style="width: fit-content; margin-top: 2rem">
           <figure style="margin: 0 0 0 1rem">
             <img
               src="images/jobf1/restriction.png"
@@ -112,12 +118,12 @@
                 border-radius: 4px;
               "
             />
-            <figcaption class="cli-caption">
-              Red notification = job with visa restrictions (citizenship, no
-              sponsorship, ITAR, etc.)
+            <figcaption class="cli-caption" style="text-wrap: wrap;">
+              Red notification = job with visa restrictions
             </figcaption>
           </figure>
         </div>
+
       </section>
 
       <!-- Install -->
@@ -198,13 +204,17 @@
     <script>
       function toggleTheme() {
         document.body.classList.toggle("light-theme");
-        document.getElementById("header").classList.toggle("light-theme");
+
+        const header = document.querySelector("header");
+        if (header) {
+          header.classList.toggle("light-theme");
+        }
 
         const toggle = document.querySelector(".theme-toggle");
-        if (document.body.classList.contains("light-theme")) {
-          toggle.textContent = "change to dark";
-        } else {
-          toggle.textContent = "change to light";
+        if (toggle) {
+          toggle.textContent = document.body.classList.contains("light-theme")
+            ? "change to dark"
+            : "change to light";
         }
       }
     </script>

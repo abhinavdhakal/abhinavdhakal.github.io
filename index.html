@@ -15,10 +15,10 @@
     <!-- Landing -->
     <section class="section" id="landing">
       <div class="landing-text">$ cat ~/intro.txt</div>
-      <p>Hello! I'm Abhinav, a Computer Engineering student at Mississippi State University. I enjoy building software and hardware projects that solve practical problems and learning new technologies along the way.</p>
+  <p class="intro">Hello! I'm Abhinav, a Computer Engineering student at Mississippi State University, building software and hardware that solve everyday friction.</p>
 
 
-      <p>Welcome to my personal site. I’m currently updating projects!</p>
+  <p class="intro">Here’s a running log of the products and tools I’m shipping while I iterate on new ideas.</p>
     </section>
 
 
@@ -27,43 +27,43 @@
       <div class="landing-text">$ tree ~/projects</div>
       <div class="projects">
         <div class="project-card">
-          <h3><a href="splitit-app.html">SplitIt.js</a> | Next.js, React, Supabase, PDF.js, Tailwind CSS</h3>
+          <h3><a href="splitit-app.html">SplitIt.js</a> <span class="project-stack">| Next.js, React, Supabase</span></h3>
           <p>
-            Smart receipt splitter for roommates and groups. Upload Walmart PDF receipts, let everyone claim their items, and get instant fair breakdown with automatic tax/tip division.<br>
-            Eliminates confusion over shared expenses with clear tracking of who bought what.<br>
-            Features group management, PDF parsing, item claiming interface, and expense summaries.
+            Upload a receipt, claim your items, and SplitIt auto-divides tax, tip, and balances so every roommate knows what they owe instantly.
           </p>
           <p><a href="https://github.com/abhinavdhakal/splitit" target="_blank">GitHub</a> | 
           <a href="splitit-app.html">Live Demo & Details</a></p>
         </div>
 
         <div class="project-card">
-          <h3><a href="jobf1-extension.html">JobF1 Extension.crx</a> | Chrome Extension, JavaScript (ES6), Manifest V3</h3>
+          <h3><a href="jobf1-extension.html">JobF1 Extension.crx</a> <span class="project-stack">| Chrome Extension, Manifest V3</span></h3>
           <p>
-            Chrome extension that keeps LinkedIn job hunts visa-friendly. Filters by posting time, keywords, and job type while flagging citizenship or sponsorship restrictions in real time.<br>
-            Highlights eligibility with clear green/red indicators so international students don't waste time on ineligible roles.<br>
-            Runs entirely in-browser with zero data collection.
+            Chrome extension that flags visa restrictions on LinkedIn listings and filters by time, keywords, and job type—so you only pursue roles you’re eligible for.
           </p>
           <p><a href="jobf1-extension.html">Case Study & Screens</a></p>
         </div>
+
+        <div class="project-card">
+          <h3><a href="splitwise-ynab.html">Splitwise-YNAB Sync.py</a> <span class="project-stack">| Python, Splitwise API, YNAB API</span></h3>
+          <p>
+            Watches Splitwise for new expenses and mirrors them into YNAB with duplicate protection plus smart handling for splits, repayments, and owes.
+          </p>
+          <p><a href="splitwise-ynab.html">Workflow & Setup Guide</a></p>
+        </div>
         
         <div class="project-card">
-          <h3><a href="musicdl-cli.html">musicdl-cli.js</a> | Node.js, Spotify API, Last.fm API, FFmpeg</h3>
+          <h3><a href="musicdl-cli.html">musicdl-cli.js</a> <span class="project-stack">| Node.js, Spotify API, FFmpeg</span></h3>
           <p>
-            A simple CLI tool to download music from Spotify playlists, albums, or tracks.<br>
-            Uses freely available music videos as audio sources and Spotify API for accurate metadata.<br>
-            Supports parallel downloads, FFmpeg audio conversion, automatic metadata tagging, and synced lyrics.
+            CLI that downloads Spotify playlists using available sources, converts tracks with FFmpeg, and auto-tags metadata and lyrics for offline collections.
           </p>
           <p><a href="https://www.npmjs.com/package/musicdl-cli" target="_blank">npm</a> | 
           <a href="https://github.com/abhinavdhakal/musicdl-cli" target="_blank">GitHub</a></p>
         </div>
         
         <div class="project-card">
-          <h3><a href="ear-wearable.html">Low-Power Ear Wearable Prototype.py</a> | Circuitpython, PCB, BLE, USB-C</h3>
+          <h3><a href="ear-wearable.html">Low-Power Ear Wearable Prototype.py</a> <span class="project-stack">| CircuitPython, BLE, USB-C</span></h3>
           <p>
-            Team project at Athlete Engineering.<br>
-            Built a wearable for ear-based temperature and environment sensing.<br>
-            My role: hardware integration and protocol design.
+            Ear-worn wearable for temperature and environment sensing—my focus was on hardware integration and BLE/USB protocols.
           </p>
           <p><a href="ear-wearable.html">Technical Details</a></p>
         </div>
@@ -161,14 +161,17 @@
   <script>
     function toggleTheme() {
       document.body.classList.toggle("light-theme");
-      document.getElementById("header").classList.toggle("light-theme");
 
-      // Update the toggle text
+      const header = document.querySelector("header");
+      if (header) {
+        header.classList.toggle("light-theme");
+      }
+
       const toggle = document.querySelector(".theme-toggle");
-      if (document.body.classList.contains("light-theme")) {
-        toggle.textContent = "change to dark";
-      } else {
-        toggle.textContent = "change to light";
+      if (toggle) {
+        toggle.textContent = document.body.classList.contains("light-theme")
+          ? "change to dark"
+          : "change to light";
       }
     }
   </script>

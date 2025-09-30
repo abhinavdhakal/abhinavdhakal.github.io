@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Splitwise-YNAB Sync Tool | Abhinav Dhakal</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="header">
+      <h1><a href="index.html">Abhinav Dhakal</a></h1>
+      <span class="theme-toggle" onclick="toggleTheme()">change to light</span>
+    </header>
+    <main>
+      <!-- Project Header -->
+      <section class="section" id="landing">
+        <div class="landing-text">
+          $ cat ~/projects/splitwise-ynab/README.md
+        </div>
+        <h1>Splitwise-YNAB Sync Tool</h1>
+        <p>
+          A Python application that automatically synchronizes Splitwise
+          expenses with your <strong>YNAB (You Need A Budget)</strong> account.
+          It continuously monitors Splitwise expenses and creates corresponding
+          transactions in YNAB, handling split payments, repayments, and regular
+          expenses intelligently.
+        </p>
+      </section>
+
+      <!-- Features -->
+      <section class="section">
+        <h2>Features</h2>
+        <ul>
+          <li>
+            <strong>Automatic Sync:</strong> Continuously monitors Splitwise for
+            new expenses
+          </li>
+          <li>
+            <strong>Smart Transaction Processing:</strong> Handles split
+            payments, repayments, and regular expenses
+          </li>
+          <li>
+            <strong>Duplicate Prevention:</strong> Avoids creating duplicate
+            transactions
+          </li>
+          <li>
+            <strong>Flexible Configuration:</strong> Customizable sync
+            intervals, date ranges, and account mappings
+          </li>
+          <li>
+            <strong>Robust Error Handling:</strong> Comprehensive logging and
+            recovery
+          </li>
+        </ul>
+      </section>
+
+      <!-- Setup -->
+      <section class="section">
+        <h2>Setup</h2>
+
+        <h3>Prerequisites</h3>
+        <ul>
+          <li>Python 3.7 or higher</li>
+          <li>Splitwise API key</li>
+          <li>YNAB Personal Access Token</li>
+          <li>A dedicated Splitwise account in YNAB</li>
+          <li>A Splitwise category in YNAB for shared expenses</li>
+        </ul>
+
+        <h3>Installation</h3>
+        <ol>
+          <li>
+            Clone the repository
+            <div class="thumbnail">
+              git clone &lt;repository-url&gt; cd Splitwise-YNAB-Integration
+            </div>
+          </li>
+          <li>
+            Install dependencies
+            <div class="thumbnail">pip install -r requirements.txt</div>
+          </li>
+          <li>
+            Create a <code>.env</code> file with your configuration
+            <div class="thumbnail">
+              # Required API Keys SW_API_KEY=your_splitwise_api_key_here
+              YNAB_TOKEN=your_ynab_personal_access_token_here # YNAB
+              Configuration YNAB_BUDGET=last-used YNAB_SW_ACCOUNT=Splitwise
+              YNAB_SW_CATEGORY=Splitwise # Sync Settings USER_NAME=your_name
+              SYNC_DAYS=7 POLL_INTERVAL=15 ALLOW_DUPLICATES=false # Logging
+              LOG_LEVEL=INFO
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Configuration Options -->
+      <section class="section">
+        <h2>Configuration Options</h2>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Variable</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>SW_API_KEY</code></td>
+                <td>Required</td>
+                <td>Your Splitwise API key</td>
+              </tr>
+              <tr>
+                <td><code>YNAB_TOKEN</code></td>
+                <td>Required</td>
+                <td>Your YNAB Personal Access Token</td>
+              </tr>
+              <tr>
+                <td><code>YNAB_BUDGET</code></td>
+                <td><code>last-used</code></td>
+                <td>Name of your YNAB budget or <code>last-used</code></td>
+              </tr>
+              <tr>
+                <td><code>YNAB_SW_ACCOUNT</code></td>
+                <td><code>Splitwise</code></td>
+                <td>Name of your Splitwise tracking account in YNAB</td>
+              </tr>
+              <tr>
+                <td><code>YNAB_SW_CATEGORY</code></td>
+                <td><code>Splitwise</code></td>
+                <td>Category for shared expenses</td>
+              </tr>
+              <tr>
+                <td><code>USER_NAME</code></td>
+                <td><code>you</code></td>
+                <td>Your name for transaction memos</td>
+              </tr>
+              <tr>
+                <td><code>SYNC_DAYS</code></td>
+                <td><code>7</code></td>
+                <td>How many days back to check for expenses</td>
+              </tr>
+              <tr>
+                <td><code>POLL_INTERVAL</code></td>
+                <td><code>15</code></td>
+                <td>Minutes between sync cycles</td>
+              </tr>
+              <tr>
+                <td><code>ALLOW_DUPLICATES</code></td>
+                <td><code>false</code></td>
+                <td>Whether to allow duplicate transactions</td>
+              </tr>
+              <tr>
+                <td><code>LOG_LEVEL</code></td>
+                <td><code>INFO</code></td>
+                <td>
+                  Logging level (<code>DEBUG</code>, <code>INFO</code>,
+                  <code>WARNING</code>, <code>ERROR</code>)
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Usage -->
+      <section class="section">
+        <h2>Usage</h2>
+        <h3>Running the Sync Tool</h3>
+        <div class="thumbnail">python splitwise_ynab_sync.py</div>
+        <p>The tool will:</p>
+        <ol>
+          <li>Connect to both Splitwise and YNAB APIs</li>
+          <li>Fetch recent expenses from Splitwise</li>
+          <li>Check for existing transactions in YNAB to avoid duplicates</li>
+          <li>Process and create new transactions as needed</li>
+          <li>Sleep for the configured interval and repeat</li>
+        </ol>
+      </section>
+
+      <!-- Transaction Types -->
+      <section class="section">
+        <h2>Transaction Types</h2>
+        <ol>
+          <li>
+            <strong>Split Payments</strong> – When you pay for an expense that's
+            shared with others
+            <ul>
+              <li>
+                Creates a split transaction with your share (outflow) and
+                others' shares (inflow)
+              </li>
+              <li>Others' shares are categorized to your Splitwise category</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Repayments</strong> – When you pay someone back or settle up
+            <ul>
+              <li>
+                Creates an outflow transaction categorized to your Splitwise
+                category
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Regular Expenses</strong> – When someone else pays and you
+            owe money
+            <ul>
+              <li>
+                Creates an inflow transaction (left uncategorized for you to
+                assign)
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <!-- API Keys Setup -->
+      <section class="section">
+        <h2>API Keys Setup</h2>
+        <h3>Splitwise API Key</h3>
+        <ol>
+          <li>
+            Visit
+            <a href="https://secure.splitwise.com/apps" target="_blank"
+              >Splitwise Apps</a
+            >
+          </li>
+          <li>Register a new application</li>
+          <li>Copy your Consumer Key (API Key)</li>
+        </ol>
+
+        <h3>YNAB Personal Access Token</h3>
+        <ol>
+          <li>
+            Go to
+            <a
+              href="https://app.youneedabudget.com/settings/developer"
+              target="_blank"
+              >YNAB Developer Settings</a
+            >
+          </li>
+          <li>Generate a new Personal Access Token</li>
+          <li>Copy the token and add it to your <code>.env</code></li>
+        </ol>
+      </section>
+
+      <!-- Project Structure -->
+      <section class="section">
+        <h2>Project Structure</h2>
+        <div class="thumbnail">
+          ├── splitwise_ynab_sync.py # Main application entry point ├──
+          config.py # Configuration management ├── api_client.py # API client
+          classes for Splitwise and YNAB ├── transaction_processor.py # Expense
+          processing logic ├── requirements.txt # Python dependencies └── .env #
+          Environment configuration (create this)
+        </div>
+      </section>
+
+      <!-- Contributing -->
+      <section class="section">
+        <h2>Contributing</h2>
+        <p>
+          This project was refactored for improved maintainability and clarity.
+          Feel free to submit issues or pull requests for enhancements.
+        </p>
+      </section>
+
+      <!-- License -->
+      <section class="section">
+        <h2>License</h2>
+        <p>
+          This project is open source. Please check the license file for more
+          details.
+        </p>
+      </section>
+
+      <!-- Links -->
+      <section class="section" id="contact">
+        <h2>Links</h2>
+        <p><a href="index.html">← Back to Portfolio</a></p>
+      </section>
+    </main>
+
+    <script>
+      function toggleTheme() {
+        document.body.classList.toggle("light-theme");
+
+        const header = document.querySelector("header");
+        if (header) {
+          header.classList.toggle("light-theme");
+        }
+
+        const toggle = document.querySelector(".theme-toggle");
+        if (toggle) {
+          toggle.textContent = document.body.classList.contains("light-theme")
+            ? "change to dark"
+            : "change to light";
+        }
+      }
+    </script>
+  </body>
+</html>

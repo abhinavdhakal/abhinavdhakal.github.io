@@ -281,14 +281,17 @@
     <script>
       function toggleTheme() {
         document.body.classList.toggle("light-theme");
-        document.getElementById("header").classList.toggle("light-theme");
 
-        // Update the toggle text
+        const header = document.querySelector("header");
+        if (header) {
+          header.classList.toggle("light-theme");
+        }
+
         const toggle = document.querySelector(".theme-toggle");
-        if (document.body.classList.contains("light-theme")) {
-          toggle.textContent = "change to dark";
-        } else {
-          toggle.textContent = "change to light";
+        if (toggle) {
+          toggle.textContent = document.body.classList.contains("light-theme")
+            ? "change to dark"
+            : "change to light";
         }
       }
     </script>
