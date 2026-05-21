@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WirstWatch_BCS | Abhinav Dhakal</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="../index.html">Abhinav Dhakal</a></h1>
+      <span class="theme-toggle" onclick="toggleTheme()">change to light</span>
+    </header>
+    <main>
+      <a href="../index.html" class="back-button">← Back to Home</a>
+
+      <section class="section" id="landing">
+        <div class="landing-text">
+          $ cat ~/projects/wirstwatch_bcs/README.md
+        </div>
+        <div class="project-header-row">
+          <h1>WirstWatch_BCS</h1>
+        </div>
+
+        <figure
+          class="cli-figure"
+          style="width: fit-content; margin: 2rem auto"
+        >
+          <img
+            src="../images/bcs-watch/bcs-watch-casing-front.jpeg"
+            alt="WirstWatch_BCS casing front"
+            style="
+              display: block;
+              width: auto;
+              max-width: 100%;
+              max-height: 260px;
+              margin: 0 auto;
+              border-radius: 4px;
+            "
+          />
+          <figcaption class="cli-caption">
+            Wrist-worn BCS prototype casing front
+          </figcaption>
+        </figure>
+
+        <p>
+          WirstWatch_BCS is a wearable vital-signs prototype focused on heart
+          rate, SpO2, temperature, IMU data, and battery telemetry over BLE. The
+          current focus is making the firmware-to-desktop pipeline stable end to
+          end.
+        </p>
+      </section>
+
+      <section class="section">
+        <h3>Project Snapshot</h3>
+        <ul>
+          <li>
+            Arduino firmware on nRF52840 hardware sends BLE telemetry for IR,
+            Red, temperature, IMU, and battery data.
+          </li>
+          <li>
+            A PyQt receiver subscribes to notifications, logs sessions, and
+            computes HR/SpO2 from the IR/Red stream.
+          </li>
+          <li>
+            The prototype is still being tuned for motion tolerance and more
+            reliable signal quality.
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h3>PCB Views</h3>
+        <div
+          class="cli-figure cli-figure-row"
+          style="
+            gap: 0.75rem;
+            align-items: stretch;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          "
+        >
+          <figure style="margin: 0; min-width: 0">
+            <img
+              src="../images/bcs-watch/bcs-pcb-design-0.png"
+              alt="BCS watch PCB design 0"
+              style="
+                display: block;
+                width: auto;
+                height: auto;
+                max-width: 100%;
+                max-height: 130px;
+                border-radius: 4px;
+                margin: 0 auto;
+              "
+            />
+          </figure>
+          <figure style="margin: 0; min-width: 0">
+            <img
+              src="../images/bcs-watch/bcs-pcb-design-1.png"
+              alt="BCS watch PCB design 1"
+              style="
+                display: block;
+                width: auto;
+                height: auto;
+                max-width: 100%;
+                max-height: 130px;
+                border-radius: 4px;
+                margin: 0 auto;
+              "
+            />
+          </figure>
+        </div>
+        <div
+          class="cli-figure cli-figure-row"
+          style="
+            gap: 0.75rem;
+            align-items: stretch;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            margin-top: 1rem;
+          "
+        >
+          <figure style="margin: 0; min-width: 0">
+            <img
+              src="../images/bcs-watch/bcs-pcb-design-2.png"
+              alt="BCS watch PCB design 2"
+              style="
+                display: block;
+                width: auto;
+                height: auto;
+                max-width: 100%;
+                max-height: 130px;
+                border-radius: 4px;
+                margin: 0 auto;
+              "
+            />
+          </figure>
+          <figure style="margin: 0; min-width: 0">
+            <img
+              src="../images/bcs-watch/bcs-pcb-design-3.png"
+              alt="BCS watch PCB design 3"
+              style="
+                display: block;
+                width: auto;
+                height: auto;
+                max-width: 100%;
+                max-height: 130px;
+                border-radius: 4px;
+                margin: 0 auto;
+              "
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>Receiver Software</h3>
+        <figure
+          class="cli-figure"
+          style="width: fit-content; margin: 2rem auto"
+        >
+          <img
+            src="../images/bcs-watch/bcs-watch-receiver-python.png"
+            alt="BCS watch receiver software screenshot"
+            style="
+              display: block;
+              width: 100%;
+              max-width: 520px;
+              margin: 0 auto;
+              border-radius: 4px;
+            "
+          />
+          <figcaption class="cli-caption">
+            PyQt receiver GUI for BLE collection, logging, and live plots
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <h3>Working Notes</h3>
+        <p>
+          The prototype centers on BLE telemetry, desktop logging, and signal
+          processing. The wrist PPG side is still best-effort, so the emphasis
+          is on making the data path stable before refining the algorithm and
+          enclosure fit.
+        </p>
+      </section>
+
+      <section class="section">
+        <h3>Implementation Details</h3>
+        <ul>
+          <li>
+            Telemetry is split into fast optical samples and slower context
+            updates so the BLE link stays responsive without overloading the
+            receiver.
+          </li>
+          <li>
+            The receiver treats session logging as a first-class path, so every
+            run can be replayed later for HR/SpO2 tuning and debugging.
+          </li>
+          <li>
+            Motion data is captured alongside PPG because wrist artifacts are a
+            real constraint on signal quality, especially during activity.
+          </li>
+          <li>
+            Battery telemetry is included so the prototype can be tested as a
+            wearable system, not just as a sensor demo on the bench.
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <script>
+      function toggleTheme() {
+        document.body.classList.toggle("light-theme");
+
+        const header = document.querySelector("header");
+        if (header) {
+          header.classList.toggle("light-theme");
+        }
+
+        const toggle = document.querySelector(".theme-toggle");
+        if (toggle) {
+          toggle.textContent = document.body.classList.contains("light-theme")
+            ? "change to dark"
+            : "change to light";
+        }
+      }
+    </script>
+  </body>
+</html>

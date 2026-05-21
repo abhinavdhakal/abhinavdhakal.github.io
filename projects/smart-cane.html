@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Cane with Alerts | Abhinav Dhakal</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="../index.html">Abhinav Dhakal</a></h1>
+      <span class="theme-toggle" onclick="toggleTheme()">change to light</span>
+    </header>
+    <main>
+      <a href="../index.html" class="back-button">← Back to Home</a>
+
+      <section class="section" id="landing">
+        <div class="landing-text">$ cat ~/projects/smart-cane/README.md</div>
+        <div class="project-header-row">
+          <h1>Smart Cane with Warnings and Weather Alerts</h1>
+        </div>
+
+        <figure class="cli-figure" style="width: fit-content; margin: 2rem auto;">
+          <img
+            src="../images/smart-cane/smart-cane.png"
+            alt="Smart cane project thumbnail"
+            style="display:block; width:100%; max-width:410px; margin:0 auto; border-radius:4px;"
+          />
+          <figcaption class="cli-caption">Smart cane main system thumbnail</figcaption>
+        </figure>
+        <p>
+          Class group project for an intelligent cane system that combines
+          ultrasonic sensing, weather alerts, and audio feedback. My work
+          focused on WiFi connectivity, API integration, and text-to-speech
+          playback.
+        </p>
+      </section>
+
+      <section class="section">
+        <h3>My Contribution</h3>
+        <ul>
+          <li>
+            Implemented WiFi connectivity for online updates and live request
+            handling
+          </li>
+          <li>
+            Integrated weather forecast and warning APIs for location-aware
+            alerts
+          </li>
+          <li>
+            Added Google Translate-based text-to-speech audio output for spoken
+            notifications
+          </li>
+          <li>
+            Worked with the ultrasonic sensor flow used for obstacle detection
+            warnings
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h3>Process Diagrams</h3>
+
+        <figure class="cli-figure" style="width: fit-content; margin: 2rem auto;">
+          <img
+            src="../images/smart-cane/full-process-diagram.png"
+            alt="Full smart cane team process diagram"
+            style="display:block; width:100%; max-width:820px; margin:0 auto; border-radius:4px;"
+          />
+          <figcaption class="cli-caption">Full team process diagram</figcaption>
+        </figure>
+
+        <figure class="cli-figure" style="width: fit-content; margin: 2rem auto;">
+          <img
+            src="../images/smart-cane/my-subsystem-process-diagram.png"
+            alt="Smart cane subsystem process diagram"
+            style="display:block; width:100%; max-width:820px; margin:0 auto; border-radius:4px;"
+          />
+          <figcaption class="cli-caption">My subsystem process diagram</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <h3>Source Code</h3>
+        <p>
+          <a href="https://pastebin.com/wj9KQqgX" target="_blank">View the firmware source (.ino)</a>
+        </p>
+      </section>
+
+      <section class="section">
+        <h3>Tech Stack</h3>
+        <p>
+          WiFi, API Integration, Ultrasonic Sensor, Text-to-Speech, Google
+          Translate API, Weather API
+        </p>
+      </section>
+    </main>
+
+    <script>
+      function toggleTheme() {
+        document.body.classList.toggle("light-theme");
+
+        const header = document.querySelector("header");
+        if (header) {
+          header.classList.toggle("light-theme");
+        }
+
+        const toggle = document.querySelector(".theme-toggle");
+        if (toggle) {
+          toggle.textContent = document.body.classList.contains("light-theme")
+            ? "change to dark"
+            : "change to light";
+        }
+      }
+    </script>
+  </body>
+</html>
