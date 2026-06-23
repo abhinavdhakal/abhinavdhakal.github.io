@@ -55,9 +55,51 @@
           <li>Built and iterated 10+ ESP32-based ear-worn prototypes for heat-safety monitoring, moving from breadboard builds to custom EasyEDA PCBs and shrinking the device footprint by 40%.</li>
           <li>Developed CircuitPython firmware with multi-sensor interfaces (BME680, thermistor, SD), BLE GATT streaming, custom UART framing and checksums, and OTA updates.</li>
           <li>Integrated BLE and USB workflows for real-time monitoring, data transfer, and device configuration across distributed multi-device setups.</li>
-          <li>Delivered a PyQt desktop app for real-time visualization, multi-device control, user/data management, CSV logging, and file download, used in 20+ lab test sessions.</li>
+          <li>Built a full PyQt6 desktop application for multi-device control, used across 20+ lab test sessions.</li>
           <li>Drove three hardware revisions in collaboration with the team to reach a compact, field-ready wearable.</li>
         </ul>
+      </section>
+
+      <section class="section">
+        <h2>Desktop GUI (PyQt6)</h2>
+        <p>
+          Alongside the firmware, I built a full desktop application in PyQt6 to manage the entire device ecosystem from a single interface. The goal was to give researchers a way to run multi-device sessions without touching the hardware or manually handling files.
+        </p>
+
+        <h3>Features</h3>
+        <ul>
+          <li><strong>Simultaneous BLE connections</strong> — connect to multiple CoreTymp devices at once, with per-device real-time data streams and status monitoring in a single view</li>
+          <li><strong>OTA firmware updates</strong> — push new firmware to one or all connected devices from the GUI without physically reflashing each unit</li>
+          <li><strong>Per-device configuration</strong> — adjust sampling rate, alert thresholds, and logging behavior on individual devices without affecting others in the session</li>
+          <li><strong>User assignment</strong> — assign a named user profile to each device before a session, so data files are automatically labeled and organized on download</li>
+          <li><strong>USB-C dock integration</strong> — when devices are docked, the app detects them over USB and automatically pulls logged data files and queues them for charging, no manual file management needed</li>
+        </ul>
+
+        <h3>GUI Screenshots</h3>
+
+        <figure class="cli-figure" style="width: fit-content; margin: 2rem auto;">
+          <!-- TODO: replace src with actual screenshot -->
+          <div style="display:block; width:min(720px,90vw); height:min(440px,55vw); background:var(--gruvbox-bg2,#121f2e); border:1px solid rgba(34,211,238,0.15); border-radius:6px; margin:0 auto; display:flex; align-items:center; justify-content:center; font-family:monospace; color:rgba(34,211,238,0.35); font-size:0.85rem;">
+            screenshot 1 — main dashboard / device list
+          </div>
+          <figcaption class="cli-caption">main dashboard — connected devices + live readings</figcaption>
+        </figure>
+
+        <figure class="cli-figure" style="width: fit-content; margin: 2rem auto;">
+          <!-- TODO: replace src with actual screenshot -->
+          <div style="display:block; width:min(720px,90vw); height:min(440px,55vw); background:var(--gruvbox-bg2,#121f2e); border:1px solid rgba(34,211,238,0.15); border-radius:6px; margin:0 auto; display:flex; align-items:center; justify-content:center; font-family:monospace; color:rgba(34,211,238,0.35); font-size:0.85rem;">
+            screenshot 2 — device config / firmware update panel
+          </div>
+          <figcaption class="cli-caption">per-device config panel and OTA firmware update</figcaption>
+        </figure>
+
+        <figure class="cli-figure" style="width: fit-content; margin: 2rem auto;">
+          <!-- TODO: replace src with actual screenshot -->
+          <div style="display:block; width:min(720px,90vw); height:min(440px,55vw); background:var(--gruvbox-bg2,#121f2e); border:1px solid rgba(34,211,238,0.15); border-radius:6px; margin:0 auto; display:flex; align-items:center; justify-content:center; font-family:monospace; color:rgba(34,211,238,0.35); font-size:0.85rem;">
+            screenshot 3 — USB-C dock sync / user assignment
+          </div>
+          <figcaption class="cli-caption">USB-C dock auto-sync and user assignment view</figcaption>
+        </figure>
       </section>
 
       <section class="section">

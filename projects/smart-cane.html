@@ -31,8 +31,9 @@
         <p>
           Class group project for an intelligent cane system that combines
           ultrasonic sensing, weather alerts, and audio feedback. My work
-          focused on WiFi connectivity, API integration, and text-to-speech
-          playback.
+          covered WiFi connectivity, API integration, text-to-speech playback,
+          and the full FreeRTOS restructure that made the integrated system
+          actually stable.
         </p>
       </section>
 
@@ -55,7 +56,51 @@
             Worked with the ultrasonic sensor flow used for obstacle detection
             warnings
           </li>
+          <li>
+            Diagnosed system instability in the integrated build and restructured
+            the entire codebase around a FreeRTOS task architecture running
+            across both ESP32 cores
+          </li>
         </ul>
+      </section>
+
+      <section class="section">
+        <h3>The Integration Problem</h3>
+        <p>
+          Each module worked fine in isolation. Once we integrated everything —
+          sensor reads, API polling, TTS playback — the system became unreliable.
+          Sensor updates were delayed, alerts misfired, and behavior was
+          inconsistent under any real processing load. The single-loop architecture
+          meant every operation was blocking everything else.
+        </p>
+        <p>
+          I isolated the timing of each component to figure out where delays were
+          accumulating. The issue wasn't in any individual module — it was the
+          architecture. Putting everything sequentially in <code>loop()</code> meant
+          a slow API call would starve the sensor, and a TTS output would block the
+          whole system.
+        </p>
+      </section>
+
+      <section class="section">
+        <h3>FreeRTOS Restructure</h3>
+        <p>
+          I split the system into independent FreeRTOS tasks, each pinned to a
+          core or given a priority appropriate to its timing requirements:
+        </p>
+        <ul>
+          <li><strong>sensor task</strong> — continuous ultrasonic acquisition at fixed intervals</li>
+          <li><strong>processing / filter task</strong> — consumes sensor data, applies logic, decides alert state</li>
+          <li><strong>alert / output task</strong> — handles TTS playback and API-triggered notifications</li>
+        </ul>
+        <p>
+          Tasks communicate through FreeRTOS queues instead of shared variables,
+          so there's no race condition risk and each module stays decoupled. After
+          restructuring, sensor readings were consistent, alerts fired in real time,
+          and the system ran stably through extended testing. Adding new features
+          also became straightforward — each new module just becomes another task
+          with a well-defined interface.
+        </p>
       </section>
 
       <section class="section">
@@ -90,8 +135,8 @@
       <section class="section">
         <h3>Tech Stack</h3>
         <p>
-          WiFi, API Integration, Ultrasonic Sensor, Text-to-Speech, Google
-          Translate API, Weather API
+          ESP32, FreeRTOS, C, WiFi, Ultrasonic Sensing, Google Translate API,
+          Weather API, Text-to-Speech
         </p>
       </section>
     </main>
