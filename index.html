@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Abhinav Dhakal — Computer Engineering student at Mississippi State. Hardware, firmware, and full-stack.">
+  <meta name="description" content="Abhinav Dhakal, Computer Engineering student at Mississippi State. Hardware, firmware, and full-stack.">
   <title>Abhinav Dhakal</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -41,18 +41,13 @@
   <section class="hero" id="hero">
     <div class="hero-left">
 
-      <div class="hero-badge">
-        <span class="dot"></span>
-        open to opportunities &middot; may 2027
-      </div>
-
       <h1 class="hero-name">
         <span>Abhinav</span>
         <span>Dhakal</span>
       </h1>
 
       <p class="hero-desc">
-        computer engineering @ mississippi state &mdash; custom pcbs,
+        computer engineering @ mississippi state. custom pcbs,
         embedded firmware, full-stack apps, and cli tooling. i build
         things end-to-end.
       </p>
@@ -90,8 +85,8 @@
       <div class="about-text-col reveal reveal-delay-1">
         <p>
           <strong>computer engineering</strong> student at Mississippi State University (cgpa 3.88 / 4.00).
-          i build things at the intersection of hardware and software &mdash; from pcb layout and embedded
-          firmware to full-stack apps and cli tools.
+          i build things at the intersection of hardware and software: pcb layout, embedded
+          firmware, full-stack apps, and cli tools.
         </p>
         <p>
           i've worked on wearable biosensors, wireless protocols (ble, can, uart, i&#178;c),
@@ -150,7 +145,7 @@
           </div>
           <div class="proj-card-body">
             <h3>Smart Cane</h3>
-            <p>obstacle detection + weather alerts on esp32. rewrote a single-loop design into freertos tasks (sensor acquisition, processing, alert handling) with queues — fixed blocking instability and made the system actually reliable under load.</p>
+            <p>obstacle detection + weather alerts on esp32. rewrote a single-loop design into freertos tasks (sensor acquisition, processing, alert handling) with queues. fixed blocking instability and made the system actually reliable under load.</p>
             <div class="proj-card-tags">
               <span>ESP32</span><span>FreeRTOS</span><span>C</span><span>WiFi</span><span>REST API</span><span>TTS</span>
             </div>
@@ -178,11 +173,107 @@
           </div>
           <div class="proj-card-body">
             <h3>CoreTymp</h3>
-            <p>ear-worn vitals monitor on a custom pcb. circuitpython firmware + ble/usb-c stack, plus a full pyqt6 desktop app — simultaneous multi-device ble, ota firmware updates, per-device config, and usb-c dock auto-sync.</p>
+            <p>ear-worn vitals monitor on a custom pcb. circuitpython firmware + ble/usb-c stack, plus a full pyqt6 desktop app with simultaneous multi-device ble, ota firmware updates, per-device config, and usb-c dock auto-sync.</p>
             <div class="proj-card-tags">
               <span>CircuitPython</span><span>PyQt6</span><span>BLE</span><span>USB-C</span><span>KiCad</span>
             </div>
             <span class="proj-card-link">details &rarr;</span>
+          </div>
+        </a>
+
+        <a href="projects/canbus-datalogger.html" class="proj-card reveal">
+          <div class="proj-card-img">
+            <div class="proj-card-viz">
+              <svg viewBox="0 0 470 270">
+
+                <!-- wired bus lines -->
+                <line x1="92"  y1="121" x2="100" y2="121" stroke="rgba(34,211,238,.16)" stroke-width="1" stroke-dasharray="3 5"/>
+                <line x1="192" y1="121" x2="204" y2="121" stroke="rgba(34,211,238,.16)" stroke-width="1" stroke-dasharray="3 5"/>
+                <line x1="242" y1="166" x2="242" y2="208" stroke="rgba(52,211,153,.13)" stroke-width="1" stroke-dasharray="3 5"/>
+                <!-- wireless BLE hop (wider dash, planned feature) -->
+                <line x1="280" y1="86"  x2="308" y2="58"  stroke="rgba(96,165,250,.18)" stroke-width="1" stroke-dasharray="5 4"/>
+                <line x1="342" y1="62"  x2="342" y2="76"  stroke="rgba(34,211,238,.16)" stroke-width="1" stroke-dasharray="3 5"/>
+
+                <!-- labels -->
+                <text x="96"  y="113" fill="rgba(34,211,238,.26)" font-size="6.5" font-family="IBM Plex Mono,monospace" text-anchor="middle">CAN</text>
+                <text x="254" y="190" fill="rgba(52,211,153,.26)" font-size="7"   font-family="IBM Plex Mono,monospace">SPI</text>
+                <text x="284" y="68"  fill="rgba(96,165,250,.36)" font-size="7"   font-family="IBM Plex Mono,monospace">BLE</text>
+                <text x="349" y="70"  fill="rgba(34,211,238,.24)" font-size="5.5" font-family="IBM Plex Mono,monospace">SPI</text>
+
+                <!-- ECU -->
+                <rect x="8" y="96" width="84" height="50" rx="4" fill="rgba(6,14,24,.96)" stroke="rgba(34,211,238,.22)" stroke-width="1"/>
+                <text x="50" y="116" text-anchor="middle" fill="rgba(34,211,238,.85)" font-size="10"  font-family="IBM Plex Mono,monospace" font-weight="500">ECU</text>
+                <text x="50" y="132" text-anchor="middle" fill="rgba(34,211,238,.34)" font-size="7"    font-family="IBM Plex Mono,monospace">Toyota 2GR-FE</text>
+
+                <!-- SN65HVD230 CAN transceiver -->
+                <rect x="100" y="96" width="92" height="50" rx="4" fill="rgba(6,14,24,.96)" stroke="rgba(34,211,238,.2)" stroke-width="1"/>
+                <text x="146" y="116" text-anchor="middle" fill="rgba(34,211,238,.78)" font-size="8.5" font-family="IBM Plex Mono,monospace" font-weight="500">SN65HVD230</text>
+                <text x="146" y="132" text-anchor="middle" fill="rgba(34,211,238,.3)"  font-size="7"   font-family="IBM Plex Mono,monospace">CAN transceiver</text>
+
+                <!-- STM32 -->
+                <rect x="204" y="78" width="76" height="88" rx="4" fill="rgba(6,14,24,.96)" stroke="rgba(34,211,238,.22)" stroke-width="1"/>
+                <text x="242" y="116" text-anchor="middle" fill="rgba(34,211,238,.85)" font-size="9.5" font-family="IBM Plex Mono,monospace" font-weight="500">STM32F103</text>
+                <text x="242" y="132" text-anchor="middle" fill="rgba(34,211,238,.32)" font-size="7"   font-family="IBM Plex Mono,monospace">bare-metal C</text>
+
+                <!-- SD card -->
+                <rect x="204" y="208" width="76" height="46" rx="4" fill="rgba(6,14,24,.96)" stroke="rgba(52,211,153,.22)" stroke-width="1"/>
+                <text x="242" y="230" text-anchor="middle" fill="rgba(52,211,153,.8)"  font-size="9"   font-family="IBM Plex Mono,monospace" font-weight="500">SD Card</text>
+                <text class="v3" x="242" y="244" text-anchor="middle" fill="rgba(52,211,153,.44)" font-size="7" font-family="IBM Plex Mono,monospace">log.csv</text>
+
+                <!-- ESP32 (wireless side, planned — drives TFT) -->
+                <rect x="308" y="20" width="68" height="42" rx="4" fill="rgba(6,14,24,.96)" stroke="rgba(96,165,250,.24)" stroke-width="1"/>
+                <text x="342" y="38" text-anchor="middle" fill="rgba(96,165,250,.82)" font-size="8.5" font-family="IBM Plex Mono,monospace" font-weight="500">ESP32</text>
+                <text x="342" y="51" text-anchor="middle" fill="rgba(96,165,250,.32)" font-size="6"   font-family="IBM Plex Mono,monospace">BLE rx · drives TFT</text>
+
+                <!-- TFT display with live metrics -->
+                <rect x="308" y="76" width="154" height="176" rx="4" fill="rgba(0,4,10,.98)" stroke="rgba(34,211,238,.22)" stroke-width="1"/>
+                <text x="385" y="92" text-anchor="middle" fill="rgba(34,211,238,.28)" font-size="7" font-family="IBM Plex Mono,monospace">TFT · wireless</text>
+                <line x1="314" y1="98" x2="456" y2="98" stroke="rgba(34,211,238,.08)" stroke-width="1"/>
+
+                <text x="316" y="114" fill="rgba(34,211,238,.44)" font-size="8" font-family="IBM Plex Mono,monospace">RPM</text>
+                <text class="v1" x="450" y="114" text-anchor="end" fill="rgba(34,211,238,.9)" font-size="11" font-family="IBM Plex Mono,monospace" font-weight="bold">2341</text>
+                <line x1="314" y1="120" x2="456" y2="120" stroke="rgba(34,211,238,.05)" stroke-width="1"/>
+
+                <text x="316" y="135" fill="rgba(34,211,238,.44)" font-size="7.5" font-family="IBM Plex Mono,monospace">MPG inst</text>
+                <text class="v2" x="450" y="135" text-anchor="end" fill="rgba(34,211,238,.9)" font-size="10.5" font-family="IBM Plex Mono,monospace" font-weight="bold">24.6</text>
+                <line x1="314" y1="141" x2="456" y2="141" stroke="rgba(34,211,238,.05)" stroke-width="1"/>
+
+                <text x="316" y="156" fill="rgba(34,211,238,.4)" font-size="7" font-family="IBM Plex Mono,monospace">MPG trip avg</text>
+                <text class="v3" x="450" y="156" text-anchor="end" fill="rgba(34,211,238,.82)" font-size="10" font-family="IBM Plex Mono,monospace" font-weight="bold">22.9</text>
+                <line x1="314" y1="162" x2="456" y2="162" stroke="rgba(34,211,238,.05)" stroke-width="1"/>
+
+                <text x="316" y="177" fill="rgba(34,211,238,.4)" font-size="7" font-family="IBM Plex Mono,monospace">MPG all-time</text>
+                <text class="v1" x="450" y="177" text-anchor="end" fill="rgba(34,211,238,.82)" font-size="10" font-family="IBM Plex Mono,monospace" font-weight="bold">21.4</text>
+                <line x1="314" y1="183" x2="456" y2="183" stroke="rgba(34,211,238,.05)" stroke-width="1"/>
+
+                <text x="316" y="198" fill="rgba(34,211,238,.44)" font-size="8" font-family="IBM Plex Mono,monospace">AFR</text>
+                <text class="v2" x="450" y="198" text-anchor="end" fill="rgba(34,211,238,.9)" font-size="10" font-family="IBM Plex Mono,monospace" font-weight="bold">14.2</text>
+                <line x1="314" y1="204" x2="456" y2="204" stroke="rgba(34,211,238,.05)" stroke-width="1"/>
+
+                <text x="316" y="219" fill="rgba(34,211,238,.44)" font-size="8" font-family="IBM Plex Mono,monospace">MPH</text>
+                <text class="v3" x="450" y="219" text-anchor="end" fill="rgba(34,211,238,.9)" font-size="10" font-family="IBM Plex Mono,monospace" font-weight="bold">62</text>
+                <line x1="314" y1="225" x2="456" y2="225" stroke="rgba(34,211,238,.07)" stroke-width="1"/>
+
+                <text x="385" y="240" text-anchor="middle" fill="rgba(96,165,250,.22)" font-size="6" font-family="IBM Plex Mono,monospace">ESP32 → SPI → TFT</text>
+
+                <!-- Packets -->
+                <circle class="p fast glow"    r="2.6" fill="rgba(34,211,238,.9)" style="offset-path:path('M92,121 L100,121');"/>
+                <circle class="p fast glow d2" r="2.6" fill="rgba(34,211,238,.9)" style="offset-path:path('M192,121 L204,121');"/>
+                <circle class="p slow glow-g d1" r="2.6" fill="rgba(52,211,153,.85)" style="offset-path:path('M242,166 L242,208');"/>
+                <circle class="p slow glow-b"    r="2.8" fill="rgba(96,165,250,.85)" style="offset-path:path('M280,86 L308,58');"/>
+                <circle class="p slow glow-b d2" r="2.8" fill="rgba(96,165,250,.6)"  style="offset-path:path('M280,86 L308,58');"/>
+                <circle class="p fast glow d3"   r="2.3" fill="rgba(34,211,238,.85)" style="offset-path:path('M342,62 L342,76');"/>
+
+              </svg>
+            </div>
+          </div>
+          <div class="proj-card-body">
+            <h3>OBD-II CAN Logger <span style="font-family:var(--font-mono);font-size:0.58rem;color:var(--gruvbox-yellow);background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.2);padding:0.1rem 0.4rem;border-radius:3px;vertical-align:middle;letter-spacing:0.06em;">WIP</span></h3>
+            <p>bare-metal stm32 project. reads my toyota's engine data over can bus, shows live metrics the dash doesn't have, logs to sd. wrote the can, spi, and i2c drivers myself off the reference manual.</p>
+            <div class="proj-card-tags">
+              <span>STM32</span><span>CAN Bus</span><span>C</span><span>SPI</span>
+            </div>
+            <span class="proj-card-link">view project &rarr;</span>
           </div>
         </a>
       </div>
@@ -269,10 +360,10 @@
             </div>
             <div class="exp-subrole">
               <div class="exp-subrole-head">
-                <div class="exp-role">Undergraduate Mentor &mdash; AI &amp; Robotics</div>
+                <div class="exp-role">Undergraduate Mentor, AI &amp; Robotics</div>
                 <div class="exp-subrole-date">Jul 2025 &ndash; Present &middot; 1 yr</div>
               </div>
-              <p>Mentoring high school students in AI and robotics &mdash; computer vision, Python, and embedded systems. NSF ITEST.</p>
+              <p>Mentoring high school students in AI and robotics: computer vision, Python, and embedded systems. NSF ITEST.</p>
             </div>
             <div class="exp-subrole">
               <div class="exp-subrole-head">
@@ -280,7 +371,7 @@
                 <div class="exp-subrole-date">Jun 2025 &ndash; Aug 2025 &middot; 3 mos</div>
               </div>
               <div class="exp-place">Building Construction Science &middot; Hybrid</div>
-              <p>Low-power wearable for stress and fatigue monitoring &mdash; custom PCB design, embedded firmware, and real-time BLE data processing.</p>
+              <p>Low-power wearable for stress and fatigue monitoring. custom PCB design, embedded firmware, and real-time BLE data processing.</p>
               <div class="exp-tags"><span>Python</span><span>Arduino</span><span>BLE</span><span>PCB Design</span><span>Firmware</span></div>
             </div>
           </div>
@@ -300,7 +391,7 @@
           </div>
           <div class="exp-role">Computer Engineering Co-op</div>
           <div class="exp-place">Raymond, MS &middot; On-site</div>
-          <p>Automated cable testing and engineering workflows using PyQt, SQL, and Arduino &mdash; improved process efficiency and precision across production operations.</p>
+          <p>Automated cable testing and engineering workflows using PyQt, SQL, and Arduino. improved process efficiency and precision across production operations.</p>
           <div class="exp-tags">
             <span>Python</span><span>PyQt</span><span>SQL</span><span>Arduino</span><span>Automation</span>
           </div>
@@ -320,7 +411,7 @@
           </div>
           <div class="exp-role">Undergraduate Student Researcher</div>
           <div class="exp-place">Mississippi State, MS &middot; On-site</div>
-          <p>Wearable systems for industrial athlete monitoring &mdash; custom firmware, BLE connectivity, and real-time PyQt visualization for multi-device data collection and analysis.</p>
+          <p>Wearable systems for industrial athlete monitoring. custom firmware, BLE connectivity, and real-time PyQt visualization for multi-device data collection and analysis.</p>
           <div class="exp-tags">
             <span>CircuitPython</span><span>BLE</span><span>PCB Design</span><span>PyQt6</span><span>KiCad</span><span>Firmware</span>
           </div>
@@ -338,9 +429,9 @@
               <div class="exp-period">Part-time &middot; Apr 2024 &ndash; Nov 2024 &middot; 8 mos</div>
             </div>
           </div>
-          <div class="exp-role">Undergraduate Research Assistant &mdash; AI/ML</div>
+          <div class="exp-role">Undergraduate Research Assistant, AI/ML</div>
           <div class="exp-place">Mississippi State, MS</div>
-          <p>Soil property prediction from NIR spectrometer data &mdash; data preprocessing, model development, and cross-validation using Cubist, PLSR, and Random Forest.</p>
+          <p>Soil property prediction from NIR spectrometer data. data preprocessing, model development, and cross-validation using Cubist, PLSR, and Random Forest.</p>
           <div class="exp-tags">
             <span>Python</span><span>Scikit-Learn</span><span>Random Forest</span><span>Cubist</span><span>PLSR</span>
           </div>

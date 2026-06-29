@@ -5,6 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smart Cane with Alerts | Abhinav Dhakal</title>
     <link rel="stylesheet" href="../style.css" />
+    <style>
+      .proj-viz {
+        max-width: 520px;
+        margin: 1.6rem auto;
+        background: #060d18;
+        border: 1px solid rgba(34, 211, 238, 0.09);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .proj-viz svg { width: 100%; height: auto; display: block; }
+      .proj-viz .p { animation: pviz-flow 2s linear infinite; }
+      .proj-viz .p.fast { animation-duration: 1.4s; }
+      .proj-viz .p.slow { animation-duration: 3.2s; }
+      .proj-viz .p.d1 { animation-delay: .5s; }
+      .proj-viz .p.d2 { animation-delay: 1s; }
+      .proj-viz .p.d3 { animation-delay: 1.5s; }
+      .proj-viz .p.d4 { animation-delay: 2s; }
+      @keyframes pviz-flow {
+        0%   { offset-distance: 0%;   opacity: 0; }
+        6%   { opacity: .9; }
+        88%  { opacity: .9; }
+        100% { offset-distance: 100%; opacity: 0; }
+      }
+      .proj-viz .glow   { filter: drop-shadow(0 0 2.5px rgba(34,211,238,.7)); }
+      .proj-viz .glow-g { filter: drop-shadow(0 0 2.5px rgba(52,211,153,.7)); }
+      .proj-viz .glow-b { filter: drop-shadow(0 0 2.5px rgba(96,165,250,.7)); }
+      .proj-viz .v1 { animation: pviz-vt 2.6s ease-in-out infinite; }
+      .proj-viz .v2 { animation: pviz-vt 2.6s ease-in-out .87s infinite; }
+      .proj-viz .v3 { animation: pviz-vt 2.6s ease-in-out 1.74s infinite; }
+      @keyframes pviz-vt {
+        0%,100% { opacity: .88; }
+        44%,56% { opacity: .16; }
+      }
+      .proj-viz .obs { animation: pviz-obs 2.4s ease-in-out infinite; }
+      @keyframes pviz-obs {
+        0%,100% { opacity: .28; }
+        50%     { opacity: .9; }
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -24,10 +63,61 @@
           <img
             src="../images/smart-cane/smart-cane.png"
             alt="Smart cane project thumbnail"
-            style="display:block; width:100%; max-width:410px; margin:0 auto; border-radius:4px;"
+            style="display:block; width:auto; max-width:100%; max-height:260px; margin:0 auto; border-radius:4px;"
           />
           <figcaption class="cli-caption">Smart cane main system thumbnail</figcaption>
         </figure>
+        <div class="proj-viz">
+          <svg viewBox="0 0 340 210">
+            <line x1="90" y1="60"  x2="124" y2="82"  stroke="rgba(34,211,238,.12)" stroke-width="1" stroke-dasharray="3 5"/>
+            <line x1="90" y1="157" x2="124" y2="132" stroke="rgba(96,165,250,.14)" stroke-width="1" stroke-dasharray="3 5"/>
+            <line x1="214" y1="105" x2="254" y2="105" stroke="rgba(52,211,153,.14)" stroke-width="1" stroke-dasharray="3 5"/>
+
+            <text x="100" y="68"  fill="rgba(34,211,238,.22)" font-size="5.5" font-family="IBM Plex Mono,monospace">GPIO</text>
+            <text x="100" y="152" fill="rgba(96,165,250,.28)" font-size="5.5" font-family="IBM Plex Mono,monospace">WiFi</text>
+            <text x="234" y="98"  fill="rgba(52,211,153,.26)" font-size="6"   font-family="IBM Plex Mono,monospace" text-anchor="middle">I²S</text>
+
+            <rect x="10" y="47" width="80" height="26" rx="3" fill="rgba(6,14,24,.96)" stroke="rgba(34,211,238,.2)" stroke-width="1"/>
+            <text x="50" y="57"  text-anchor="middle" fill="rgba(34,211,238,.82)" font-size="7.5" font-family="IBM Plex Mono,monospace" font-weight="500">HC-SR04</text>
+            <text x="50" y="67"  text-anchor="middle" fill="rgba(34,211,238,.3)"  font-size="5.5" font-family="IBM Plex Mono,monospace">ultrasonic</text>
+            <circle class="obs" cx="50" cy="34" r="5.5" fill="none" stroke="rgba(251,191,36,.75)" stroke-width="1.5"/>
+            <circle class="obs" cx="50" cy="34" r="2.2" fill="rgba(251,191,36,.65)"/>
+            <text class="obs" x="62" y="38" fill="rgba(251,191,36,.6)" font-size="5.5" font-family="IBM Plex Mono,monospace">0.8 m</text>
+
+            <rect x="10" y="144" width="80" height="26" rx="3" fill="rgba(6,14,24,.96)" stroke="rgba(96,165,250,.2)" stroke-width="1"/>
+            <text x="50" y="154" text-anchor="middle" fill="rgba(96,165,250,.8)"  font-size="7.5" font-family="IBM Plex Mono,monospace" font-weight="500">Weather API</text>
+            <text x="50" y="164" text-anchor="middle" fill="rgba(96,165,250,.3)"  font-size="5.5" font-family="IBM Plex Mono,monospace">WiFi · REST</text>
+
+            <rect x="124" y="46" width="90" height="118" rx="3" fill="rgba(5,12,22,.97)" stroke="rgba(34,211,238,.22)" stroke-width="1"/>
+            <text x="169" y="59" text-anchor="middle" fill="rgba(34,211,238,.35)" font-size="5.5" font-family="IBM Plex Mono,monospace">ESP32 · FreeRTOS</text>
+
+            <rect x="130" y="64" width="78" height="22" rx="2" fill="rgba(34,211,238,.04)" stroke="rgba(34,211,238,.12)" stroke-width="1"/>
+            <text x="169" y="78" text-anchor="middle" fill="rgba(34,211,238,.62)" font-size="6" font-family="IBM Plex Mono,monospace">sensor task</text>
+
+            <line x1="169" y1="86" x2="169" y2="96" stroke="rgba(34,211,238,.14)" stroke-width="1" stroke-dasharray="2 2"/>
+            <text x="182" y="93" fill="rgba(34,211,238,.18)" font-size="5" font-family="IBM Plex Mono,monospace">queue</text>
+
+            <rect x="130" y="96" width="78" height="22" rx="2" fill="rgba(52,211,153,.04)" stroke="rgba(52,211,153,.12)" stroke-width="1"/>
+            <text x="169" y="110" text-anchor="middle" fill="rgba(52,211,153,.62)" font-size="6" font-family="IBM Plex Mono,monospace">alert task</text>
+
+            <line x1="169" y1="118" x2="169" y2="128" stroke="rgba(96,165,250,.14)" stroke-width="1" stroke-dasharray="2 2"/>
+            <text x="182" y="125" fill="rgba(96,165,250,.18)" font-size="5" font-family="IBM Plex Mono,monospace">queue</text>
+
+            <rect x="130" y="128" width="78" height="22" rx="2" fill="rgba(96,165,250,.04)" stroke="rgba(96,165,250,.12)" stroke-width="1"/>
+            <text x="169" y="142" text-anchor="middle" fill="rgba(96,165,250,.62)" font-size="6" font-family="IBM Plex Mono,monospace">api task</text>
+
+            <rect x="254" y="87" width="76" height="36" rx="3" fill="rgba(6,14,24,.96)" stroke="rgba(52,211,153,.22)" stroke-width="1"/>
+            <text x="292" y="101" text-anchor="middle" fill="rgba(52,211,153,.82)" font-size="7.5" font-family="IBM Plex Mono,monospace" font-weight="500">Speaker</text>
+            <text x="292" y="113" text-anchor="middle" fill="rgba(52,211,153,.3)"  font-size="5.5" font-family="IBM Plex Mono,monospace">TTS · I²S</text>
+
+            <circle class="p glow"        r="2.2" fill="rgba(34,211,238,.88)" style="offset-path:path('M90,60 L124,82');"/>
+            <circle class="p glow d3"     r="2.2" fill="rgba(34,211,238,.88)" style="offset-path:path('M90,60 L124,82');"/>
+            <circle class="p slow glow-b d2" r="2.2" fill="rgba(96,165,250,.85)" style="offset-path:path('M90,157 L124,132');"/>
+            <circle class="p glow-g d1"   r="2.2" fill="rgba(52,211,153,.85)" style="offset-path:path('M214,105 L254,105');"/>
+            <circle class="p glow-g d3"   r="2.2" fill="rgba(52,211,153,.85)" style="offset-path:path('M214,105 L254,105');"/>
+          </svg>
+        </div>
+
         <p>
           Class group project for an intelligent cane system that combines
           ultrasonic sensing, weather alerts, and audio feedback. My work
@@ -67,15 +157,15 @@
       <section class="section">
         <h3>The Integration Problem</h3>
         <p>
-          Each module worked fine in isolation. Once we integrated everything —
-          sensor reads, API polling, TTS playback — the system became unreliable.
+          Each module worked fine in isolation. Once we integrated everything:
+          sensor reads, API polling, TTS playback: the system became unreliable.
           Sensor updates were delayed, alerts misfired, and behavior was
           inconsistent under any real processing load. The single-loop architecture
           meant every operation was blocking everything else.
         </p>
         <p>
           I isolated the timing of each component to figure out where delays were
-          accumulating. The issue wasn't in any individual module — it was the
+          accumulating. The issue wasn't in any individual module: it was the
           architecture. Putting everything sequentially in <code>loop()</code> meant
           a slow API call would starve the sensor, and a TTS output would block the
           whole system.
@@ -89,16 +179,16 @@
           core or given a priority appropriate to its timing requirements:
         </p>
         <ul>
-          <li><strong>sensor task</strong> — continuous ultrasonic acquisition at fixed intervals</li>
-          <li><strong>processing / filter task</strong> — consumes sensor data, applies logic, decides alert state</li>
-          <li><strong>alert / output task</strong> — handles TTS playback and API-triggered notifications</li>
+          <li><strong>sensor task</strong>: continuous ultrasonic acquisition at fixed intervals</li>
+          <li><strong>processing / filter task</strong>: consumes sensor data, applies logic, decides alert state</li>
+          <li><strong>alert / output task</strong>: handles TTS playback and API-triggered notifications</li>
         </ul>
         <p>
           Tasks communicate through FreeRTOS queues instead of shared variables,
           so there's no race condition risk and each module stays decoupled. After
           restructuring, sensor readings were consistent, alerts fired in real time,
           and the system ran stably through extended testing. Adding new features
-          also became straightforward — each new module just becomes another task
+          also became straightforward: each new module just becomes another task
           with a well-defined interface.
         </p>
       </section>

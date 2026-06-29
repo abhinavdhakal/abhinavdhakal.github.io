@@ -5,6 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WristWatch | Abhinav Dhakal</title>
     <link rel="stylesheet" href="../style.css" />
+    <style>
+      .proj-viz {
+        max-width: 520px;
+        margin: 1.6rem auto;
+        background: #060d18;
+        border: 1px solid rgba(34, 211, 238, 0.09);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .proj-viz svg { width: 100%; height: auto; display: block; }
+      .proj-viz .p { animation: pviz-flow 2s linear infinite; }
+      .proj-viz .p.fast { animation-duration: 1.4s; }
+      .proj-viz .p.slow { animation-duration: 3.2s; }
+      .proj-viz .p.d1 { animation-delay: .5s; }
+      .proj-viz .p.d2 { animation-delay: 1s; }
+      .proj-viz .p.d3 { animation-delay: 1.5s; }
+      .proj-viz .p.d4 { animation-delay: 2s; }
+      @keyframes pviz-flow {
+        0%   { offset-distance: 0%;   opacity: 0; }
+        6%   { opacity: .9; }
+        88%  { opacity: .9; }
+        100% { offset-distance: 100%; opacity: 0; }
+      }
+      .proj-viz .glow   { filter: drop-shadow(0 0 2.5px rgba(34,211,238,.7)); }
+      .proj-viz .glow-g { filter: drop-shadow(0 0 2.5px rgba(52,211,153,.7)); }
+      .proj-viz .glow-b { filter: drop-shadow(0 0 2.5px rgba(96,165,250,.7)); }
+      .proj-viz .v1 { animation: pviz-vt 2.6s ease-in-out infinite; }
+      .proj-viz .v2 { animation: pviz-vt 2.6s ease-in-out .87s infinite; }
+      .proj-viz .v3 { animation: pviz-vt 2.6s ease-in-out 1.74s infinite; }
+      @keyframes pviz-vt {
+        0%,100% { opacity: .88; }
+        44%,56% { opacity: .16; }
+      }
+      .proj-viz .obs { animation: pviz-obs 2.4s ease-in-out infinite; }
+      @keyframes pviz-obs {
+        0%,100% { opacity: .28; }
+        50%     { opacity: .9; }
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -42,6 +81,59 @@
             Wrist-worn prototype casing front
           </figcaption>
         </figure>
+
+        <div class="proj-viz">
+          <svg viewBox="0 0 340 210">
+            <line x1="64" y1="48"  x2="122" y2="80"  stroke="rgba(34,211,238,.12)" stroke-width="1" stroke-dasharray="3 5"/>
+            <line x1="64" y1="105" x2="122" y2="105" stroke="rgba(34,211,238,.12)" stroke-width="1" stroke-dasharray="3 5"/>
+            <line x1="64" y1="162" x2="122" y2="130" stroke="rgba(34,211,238,.12)" stroke-width="1" stroke-dasharray="3 5"/>
+            <line x1="190" y1="105" x2="238" y2="105" stroke="rgba(34,211,238,.14)" stroke-width="1" stroke-dasharray="3 5"/>
+
+            <text x="85"  y="56"  fill="rgba(34,211,238,.2)" font-size="5.5" font-family="IBM Plex Mono,monospace" text-anchor="middle">I²C</text>
+            <text x="90"  y="98"  fill="rgba(34,211,238,.2)" font-size="5.5" font-family="IBM Plex Mono,monospace" text-anchor="middle">I²C</text>
+            <text x="85"  y="156" fill="rgba(34,211,238,.2)" font-size="5.5" font-family="IBM Plex Mono,monospace" text-anchor="middle">I²C</text>
+            <text x="214" y="98"  fill="rgba(34,211,238,.26)" font-size="6"   font-family="IBM Plex Mono,monospace" text-anchor="middle">BLE</text>
+
+            <rect x="10" y="37" width="54" height="22" rx="3" fill="rgba(6,14,24,.96)" stroke="rgba(34,211,238,.2)" stroke-width="1"/>
+            <text x="37" y="47" text-anchor="middle" fill="rgba(34,211,238,.82)" font-size="7" font-family="IBM Plex Mono,monospace" font-weight="500">PPG</text>
+            <text x="37" y="56" text-anchor="middle" fill="rgba(34,211,238,.3)"  font-size="5.5" font-family="IBM Plex Mono,monospace">IR / Red</text>
+
+            <rect x="10" y="94" width="54" height="22" rx="3" fill="rgba(6,14,24,.96)" stroke="rgba(34,211,238,.2)" stroke-width="1"/>
+            <text x="37" y="104" text-anchor="middle" fill="rgba(34,211,238,.82)" font-size="7" font-family="IBM Plex Mono,monospace" font-weight="500">IMU</text>
+            <text x="37" y="113" text-anchor="middle" fill="rgba(34,211,238,.3)"  font-size="5.5" font-family="IBM Plex Mono,monospace">accel / gyro</text>
+
+            <rect x="10" y="151" width="54" height="22" rx="3" fill="rgba(6,14,24,.96)" stroke="rgba(34,211,238,.2)" stroke-width="1"/>
+            <text x="37" y="161" text-anchor="middle" fill="rgba(34,211,238,.82)" font-size="7" font-family="IBM Plex Mono,monospace" font-weight="500">Temp</text>
+            <text x="37" y="170" text-anchor="middle" fill="rgba(34,211,238,.3)"  font-size="5.5" font-family="IBM Plex Mono,monospace">skin</text>
+
+            <rect x="122" y="60" width="68" height="90" rx="3" fill="rgba(6,14,24,.96)" stroke="rgba(34,211,238,.22)" stroke-width="1"/>
+            <text x="156" y="78"  text-anchor="middle" fill="rgba(34,211,238,.85)" font-size="7.5" font-family="IBM Plex Mono,monospace" font-weight="500">nRF52840</text>
+            <text x="156" y="90"  text-anchor="middle" fill="rgba(34,211,238,.32)" font-size="5.5" font-family="IBM Plex Mono,monospace">Arduino FW</text>
+            <line x1="128" y1="97" x2="184" y2="97" stroke="rgba(34,211,238,.08)" stroke-width="1"/>
+            <text x="156" y="110" text-anchor="middle" fill="rgba(34,211,238,.26)" font-size="6"   font-family="IBM Plex Mono,monospace">HR / SpO₂</text>
+            <text x="156" y="122" text-anchor="middle" fill="rgba(34,211,238,.18)" font-size="5.5" font-family="IBM Plex Mono,monospace">compute</text>
+            <text x="156" y="138" text-anchor="middle" fill="rgba(34,211,238,.16)" font-size="5.5" font-family="IBM Plex Mono,monospace">battery telemetry</text>
+
+            <rect x="238" y="60" width="96" height="90" rx="3" fill="rgba(4,10,20,.97)" stroke="rgba(34,211,238,.22)" stroke-width="1"/>
+            <text x="286" y="74"  text-anchor="middle" fill="rgba(34,211,238,.3)"  font-size="6"   font-family="IBM Plex Mono,monospace">PyQt GUI</text>
+            <line x1="240" y1="79" x2="332" y2="79" stroke="rgba(34,211,238,.07)" stroke-width="1"/>
+            <text x="244" y="93"  fill="rgba(34,211,238,.4)"  font-size="6" font-family="IBM Plex Mono,monospace">HR</text>
+            <text class="v1" x="330" y="93" text-anchor="end" fill="rgba(34,211,238,.9)" font-size="9" font-family="IBM Plex Mono,monospace" font-weight="bold">72 bpm</text>
+            <line x1="240" y1="99" x2="332" y2="99" stroke="rgba(34,211,238,.07)" stroke-width="1"/>
+            <text x="244" y="113" fill="rgba(34,211,238,.4)"  font-size="6" font-family="IBM Plex Mono,monospace">SpO₂</text>
+            <text class="v2" x="330" y="113" text-anchor="end" fill="rgba(34,211,238,.9)" font-size="9" font-family="IBM Plex Mono,monospace" font-weight="bold">98%</text>
+            <line x1="240" y1="119" x2="332" y2="119" stroke="rgba(34,211,238,.07)" stroke-width="1"/>
+            <text x="244" y="133" fill="rgba(34,211,238,.4)"  font-size="6" font-family="IBM Plex Mono,monospace">Temp</text>
+            <text class="v3" x="330" y="133" text-anchor="end" fill="rgba(34,211,238,.7)" font-size="9" font-family="IBM Plex Mono,monospace" font-weight="bold">36.8°C</text>
+
+            <circle class="p fast glow"    r="2.2" fill="rgba(34,211,238,.88)" style="offset-path:path('M64,48 L122,80');"/>
+            <circle class="p fast glow d2" r="2.2" fill="rgba(34,211,238,.88)" style="offset-path:path('M64,48 L122,80');"/>
+            <circle class="p fast glow d1" r="2.2" fill="rgba(34,211,238,.88)" style="offset-path:path('M64,105 L122,105');"/>
+            <circle class="p fast glow d3" r="2.2" fill="rgba(34,211,238,.88)" style="offset-path:path('M64,162 L122,130');"/>
+            <circle class="p glow d2"      r="2.2" fill="rgba(34,211,238,.88)" style="offset-path:path('M190,105 L238,105');"/>
+            <circle class="p glow d4"      r="2.2" fill="rgba(34,211,238,.88)" style="offset-path:path('M190,105 L238,105');"/>
+          </svg>
+        </div>
 
         <p>
           WristWatch is a wearable vital-signs prototype focused on heart

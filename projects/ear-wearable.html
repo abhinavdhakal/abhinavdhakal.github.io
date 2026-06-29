@@ -5,6 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CoreTymp | Abhinav Dhakal</title>
     <link rel="stylesheet" href="../style.css" />
+    <style>
+      .proj-viz {
+        max-width: 520px;
+        margin: 1.6rem auto;
+        background: #060d18;
+        border: 1px solid rgba(34, 211, 238, 0.09);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .proj-viz svg { width: 100%; height: auto; display: block; }
+      .proj-viz .p { animation: pviz-flow 2s linear infinite; }
+      .proj-viz .p.fast { animation-duration: 1.4s; }
+      .proj-viz .p.slow { animation-duration: 3.2s; }
+      .proj-viz .p.d1 { animation-delay: .5s; }
+      .proj-viz .p.d2 { animation-delay: 1s; }
+      .proj-viz .p.d3 { animation-delay: 1.5s; }
+      .proj-viz .p.d4 { animation-delay: 2s; }
+      @keyframes pviz-flow {
+        0%   { offset-distance: 0%;   opacity: 0; }
+        6%   { opacity: .9; }
+        88%  { opacity: .9; }
+        100% { offset-distance: 100%; opacity: 0; }
+      }
+      .proj-viz .glow   { filter: drop-shadow(0 0 2.5px rgba(34,211,238,.7)); }
+      .proj-viz .glow-g { filter: drop-shadow(0 0 2.5px rgba(52,211,153,.7)); }
+      .proj-viz .glow-b { filter: drop-shadow(0 0 2.5px rgba(96,165,250,.7)); }
+      .proj-viz .v1 { animation: pviz-vt 2.6s ease-in-out infinite; }
+      .proj-viz .v2 { animation: pviz-vt 2.6s ease-in-out .87s infinite; }
+      .proj-viz .v3 { animation: pviz-vt 2.6s ease-in-out 1.74s infinite; }
+      @keyframes pviz-vt {
+        0%,100% { opacity: .88; }
+        44%,56% { opacity: .16; }
+      }
+      .proj-viz .obs { animation: pviz-obs 2.4s ease-in-out infinite; }
+      @keyframes pviz-obs {
+        0%,100% { opacity: .28; }
+        50%     { opacity: .9; }
+      }
+    </style>
   </head>
   <body>
     <header id="header">
@@ -18,6 +57,63 @@
         <div class="landing-text">$ cat ~/projects/coretymp/README.md</div>
         <div class="project-header-row">
           <h1>CoreTymp</h1>
+        </div>
+
+        <figure class="cli-figure" style="width: fit-content; margin: 2rem auto;">
+          <img
+            src="../images/ear-wearable/thumbnail.png"
+            alt="CoreTymp project thumbnail"
+            style="display:block; width:auto; max-width:100%; max-height:260px; margin:0 auto; border-radius:4px;"
+          />
+          <figcaption class="cli-caption">CoreTymp project thumbnail</figcaption>
+        </figure>
+
+        <div class="proj-viz">
+          <svg viewBox="0 0 340 210">
+            <line x1="86" y1="42"  x2="226" y2="105" stroke="rgba(34,211,238,.12)" stroke-width="1" stroke-dasharray="3 5"/>
+            <line x1="86" y1="105" x2="226" y2="105" stroke="rgba(34,211,238,.12)" stroke-width="1" stroke-dasharray="3 5"/>
+            <line x1="86" y1="168" x2="226" y2="105" stroke="rgba(34,211,238,.12)" stroke-width="1" stroke-dasharray="3 5"/>
+            <text x="148" y="66"  fill="rgba(34,211,238,.22)" font-size="6" font-family="IBM Plex Mono,monospace" text-anchor="middle">BLE</text>
+            <text x="156" y="98"  fill="rgba(34,211,238,.22)" font-size="6" font-family="IBM Plex Mono,monospace" text-anchor="middle">BLE</text>
+            <text x="148" y="146" fill="rgba(34,211,238,.22)" font-size="6" font-family="IBM Plex Mono,monospace" text-anchor="middle">BLE</text>
+
+            <rect x="14" y="30" width="72" height="24" rx="3" fill="rgba(6,14,24,.96)" stroke="rgba(34,211,238,.2)" stroke-width="1"/>
+            <text x="50" y="40" text-anchor="middle" fill="rgba(34,211,238,.82)" font-size="7.5" font-family="IBM Plex Mono,monospace" font-weight="500">ESP32</text>
+            <text x="50" y="50" text-anchor="middle" fill="rgba(34,211,238,.3)"  font-size="6"   font-family="IBM Plex Mono,monospace">ear · BME680</text>
+
+            <rect x="14" y="93" width="72" height="24" rx="3" fill="rgba(6,14,24,.96)" stroke="rgba(34,211,238,.2)" stroke-width="1"/>
+            <text x="50" y="103" text-anchor="middle" fill="rgba(34,211,238,.82)" font-size="7.5" font-family="IBM Plex Mono,monospace" font-weight="500">ESP32</text>
+            <text x="50" y="113" text-anchor="middle" fill="rgba(34,211,238,.3)"  font-size="6"   font-family="IBM Plex Mono,monospace">ear · BME680</text>
+
+            <rect x="14" y="156" width="72" height="24" rx="3" fill="rgba(6,14,24,.96)" stroke="rgba(34,211,238,.2)" stroke-width="1"/>
+            <text x="50" y="166" text-anchor="middle" fill="rgba(34,211,238,.82)" font-size="7.5" font-family="IBM Plex Mono,monospace" font-weight="500">ESP32</text>
+            <text x="50" y="176" text-anchor="middle" fill="rgba(34,211,238,.3)"  font-size="6"   font-family="IBM Plex Mono,monospace">ear · BME680</text>
+
+            <rect x="226" y="25" width="108" height="160" rx="3" fill="rgba(4,10,20,.97)" stroke="rgba(34,211,238,.22)" stroke-width="1"/>
+            <text x="280" y="38" text-anchor="middle" fill="rgba(34,211,238,.3)" font-size="6" font-family="IBM Plex Mono,monospace">Desktop · PyQt6</text>
+            <line x1="228" y1="44" x2="332" y2="44" stroke="rgba(34,211,238,.07)" stroke-width="1"/>
+            <text x="233" y="59"  fill="rgba(34,211,238,.42)" font-size="6"   font-family="IBM Plex Mono,monospace">ear 1</text>
+            <text class="v1" x="330" y="59" text-anchor="end" fill="rgba(34,211,238,.88)" font-size="7.5" font-family="IBM Plex Mono,monospace" font-weight="500">37.2°C</text>
+            <line x1="228" y1="64" x2="332" y2="64" stroke="rgba(34,211,238,.05)" stroke-width="1"/>
+            <text x="233" y="79"  fill="rgba(34,211,238,.42)" font-size="6"   font-family="IBM Plex Mono,monospace">ear 2</text>
+            <text class="v2" x="330" y="79" text-anchor="end" fill="rgba(34,211,238,.88)" font-size="7.5" font-family="IBM Plex Mono,monospace" font-weight="500">38.1°C</text>
+            <line x1="228" y1="84" x2="332" y2="84" stroke="rgba(34,211,238,.05)" stroke-width="1"/>
+            <text x="233" y="99"  fill="rgba(34,211,238,.42)" font-size="6"   font-family="IBM Plex Mono,monospace">ear 3</text>
+            <text class="v3" x="330" y="99" text-anchor="end" fill="rgba(34,211,238,.88)" font-size="7.5" font-family="IBM Plex Mono,monospace" font-weight="500">36.9°C</text>
+            <line x1="228" y1="104" x2="332" y2="104" stroke="rgba(34,211,238,.07)" stroke-width="1"/>
+            <text x="280" y="118" text-anchor="middle" fill="rgba(34,211,238,.22)" font-size="5.5" font-family="IBM Plex Mono,monospace">3 devices connected</text>
+            <rect x="232" y="127" width="90" height="44" rx="2" fill="rgba(34,211,238,.03)" stroke="rgba(34,211,238,.1)" stroke-width="1"/>
+            <text x="277" y="141" text-anchor="middle" fill="rgba(34,211,238,.26)" font-size="6" font-family="IBM Plex Mono,monospace">OTA update</text>
+            <text x="277" y="155" text-anchor="middle" fill="rgba(34,211,238,.18)" font-size="5.5" font-family="IBM Plex Mono,monospace">USB-C sync</text>
+            <text x="277" y="167" text-anchor="middle" fill="rgba(34,211,238,.15)" font-size="5.5" font-family="IBM Plex Mono,monospace">per-device config</text>
+
+            <circle class="p glow"    r="2.4" fill="rgba(34,211,238,.88)" style="offset-path:path('M86,42 L226,105');"/>
+            <circle class="p glow d2" r="2.4" fill="rgba(34,211,238,.88)" style="offset-path:path('M86,42 L226,105');"/>
+            <circle class="p glow d1" r="2.4" fill="rgba(34,211,238,.88)" style="offset-path:path('M86,105 L226,105');"/>
+            <circle class="p glow d3" r="2.4" fill="rgba(34,211,238,.88)" style="offset-path:path('M86,105 L226,105');"/>
+            <circle class="p glow d4" r="2.4" fill="rgba(34,211,238,.88)" style="offset-path:path('M86,168 L226,105');"/>
+            <circle class="p glow d2" r="2.4" fill="rgba(34,211,238,.5)"  style="offset-path:path('M86,168 L226,105');"/>
+          </svg>
         </div>
 
         <figure class="cli-figure" style="width: fit-content; margin: 2rem auto;">
@@ -68,11 +164,11 @@
 
         <h3>Features</h3>
         <ul>
-          <li><strong>Simultaneous BLE connections</strong> — connect to multiple CoreTymp devices at once, with per-device real-time data streams and status monitoring in a single view</li>
-          <li><strong>OTA firmware updates</strong> — push new firmware to one or all connected devices from the GUI without physically reflashing each unit</li>
-          <li><strong>Per-device configuration</strong> — adjust sampling rate, alert thresholds, and logging behavior on individual devices without affecting others in the session</li>
-          <li><strong>User assignment</strong> — assign a named user profile to each device before a session, so data files are automatically labeled and organized on download</li>
-          <li><strong>USB-C dock integration</strong> — when devices are docked, the app detects them over USB and automatically pulls logged data files and queues them for charging, no manual file management needed</li>
+          <li><strong>Simultaneous BLE connections</strong>: connect to multiple CoreTymp devices at once, with per-device real-time data streams and status monitoring in a single view</li>
+          <li><strong>OTA firmware updates</strong>: push new firmware to one or all connected devices from the GUI without physically reflashing each unit</li>
+          <li><strong>Per-device configuration</strong>: adjust sampling rate, alert thresholds, and logging behavior on individual devices without affecting others in the session</li>
+          <li><strong>User assignment</strong>: assign a named user profile to each device before a session, so data files are automatically labeled and organized on download</li>
+          <li><strong>USB-C dock integration</strong>: when devices are docked, the app detects them over USB and automatically pulls logged data files and queues them for charging, no manual file management needed</li>
         </ul>
 
         <h3>GUI Screenshots</h3>
@@ -80,15 +176,15 @@
         <figure class="cli-figure" style="width: fit-content; margin: 2rem auto;">
           <!-- TODO: replace src with actual screenshot -->
           <div style="display:block; width:min(720px,90vw); height:min(440px,55vw); background:var(--gruvbox-bg2,#121f2e); border:1px solid rgba(34,211,238,0.15); border-radius:6px; margin:0 auto; display:flex; align-items:center; justify-content:center; font-family:monospace; color:rgba(34,211,238,0.35); font-size:0.85rem;">
-            screenshot 1 — main dashboard / device list
+            screenshot 1: main dashboard / device list
           </div>
-          <figcaption class="cli-caption">main dashboard — connected devices + live readings</figcaption>
+          <figcaption class="cli-caption">main dashboard: connected devices + live readings</figcaption>
         </figure>
 
         <figure class="cli-figure" style="width: fit-content; margin: 2rem auto;">
           <!-- TODO: replace src with actual screenshot -->
           <div style="display:block; width:min(720px,90vw); height:min(440px,55vw); background:var(--gruvbox-bg2,#121f2e); border:1px solid rgba(34,211,238,0.15); border-radius:6px; margin:0 auto; display:flex; align-items:center; justify-content:center; font-family:monospace; color:rgba(34,211,238,0.35); font-size:0.85rem;">
-            screenshot 2 — device config / firmware update panel
+            screenshot 2: device config / firmware update panel
           </div>
           <figcaption class="cli-caption">per-device config panel and OTA firmware update</figcaption>
         </figure>
@@ -96,7 +192,7 @@
         <figure class="cli-figure" style="width: fit-content; margin: 2rem auto;">
           <!-- TODO: replace src with actual screenshot -->
           <div style="display:block; width:min(720px,90vw); height:min(440px,55vw); background:var(--gruvbox-bg2,#121f2e); border:1px solid rgba(34,211,238,0.15); border-radius:6px; margin:0 auto; display:flex; align-items:center; justify-content:center; font-family:monospace; color:rgba(34,211,238,0.35); font-size:0.85rem;">
-            screenshot 3 — USB-C dock sync / user assignment
+            screenshot 3: USB-C dock sync / user assignment
           </div>
           <figcaption class="cli-caption">USB-C dock auto-sync and user assignment view</figcaption>
         </figure>

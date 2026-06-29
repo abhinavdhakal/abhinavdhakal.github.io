@@ -2138,8 +2138,34 @@ body.light-theme pre {
   transition: transform 0.5s ease;
 }
 
+
 .proj-card:hover .proj-card-img img {
   transform: scale(1.04);
+}
+
+.proj-card-viz svg { width: 100%; height: 100%; display: block; }
+.proj-card-viz .p { animation: pcviz-flow 2s linear infinite; }
+.proj-card-viz .p.fast { animation-duration: 1.4s; }
+.proj-card-viz .p.slow { animation-duration: 3.2s; }
+.proj-card-viz .p.d1 { animation-delay: .5s; }
+.proj-card-viz .p.d2 { animation-delay: 1s; }
+.proj-card-viz .p.d3 { animation-delay: 1.5s; }
+.proj-card-viz .p.d4 { animation-delay: 2s; }
+@keyframes pcviz-flow {
+  0%   { offset-distance: 0%;   opacity: 0; }
+  6%   { opacity: .9; }
+  88%  { opacity: .9; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+.proj-card-viz .glow   { filter: drop-shadow(0 0 2.5px rgba(34,211,238,.7)); }
+.proj-card-viz .glow-g { filter: drop-shadow(0 0 2.5px rgba(52,211,153,.7)); }
+.proj-card-viz .glow-b { filter: drop-shadow(0 0 2.5px rgba(96,165,250,.7)); }
+.proj-card-viz .v1 { animation: pcviz-vt 2.6s ease-in-out infinite; }
+.proj-card-viz .v2 { animation: pcviz-vt 2.6s ease-in-out .87s infinite; }
+.proj-card-viz .v3 { animation: pcviz-vt 2.6s ease-in-out 1.74s infinite; }
+@keyframes pcviz-vt {
+  0%,100% { opacity: .88; }
+  44%,56% { opacity: .16; }
 }
 
 .proj-card-body {
