@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Abhinav Dhakal, Computer Engineering student at Mississippi State. Hardware, firmware, and full-stack.">
+  <title>Abhinav Dhakal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Top sticky header -->
+<header class="site-header" id="site-header">
+  <a href="#hero" class="site-logo">abhinav.dhakal</a>
+  <nav class="site-nav">
+    <a href="#projects">Projects</a>
+    <a href="#experience">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="mailto:abhinavdhakal2@gmail.com" class="header-cta">Get in touch</a>
+</header>
+
+<!-- Hamburger for mobile -->
+<button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+  <span></span><span></span><span></span>
+</button>
+<div class="nav-drawer" id="nav-drawer">
+  <a href="#projects">Projects</a>
+  <a href="#experience">Work</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<div class="main">
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-left">
+
+      <h1 class="hero-name">
+        <span>Abhinav</span>
+        <span>Dhakal</span>
+      </h1>
+
+      <p class="hero-desc">
+        computer engineering @ mississippi state. custom pcbs,
+        embedded firmware, full-stack apps, and cli tooling. i build
+        things end-to-end.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View projects</a>
+        <a href="mailto:abhinavdhakal2@gmail.com" class="btn">Email</a>
+      </div>
+
+    </div>
+
+    <div class="hero-right">
+      <div class="profile-pic-wrapper">
+        <div class="profile-pic-initials">AD</div>
+        <img src="images/profile.png" alt="Abhinav Dhakal" class="profile-pic" id="profile-img">
+      </div>
+      <div class="hero-deco-label">
+        <div>Computer Engineering</div>
+        <div>Mississippi State &middot; Class of &rsquo;27</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ ABOUT ══════════════ -->
+  <section id="about">
+    <div class="sec-header reveal">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">about</h2>
+      <div class="sec-line" aria-hidden="true"></div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text-col reveal reveal-delay-1">
+        <p>
+          <strong>computer engineering</strong> student at Mississippi State University (gpa 3.84 / 4.00).
+          i build things at the intersection of hardware and software: pcb layout, embedded
+          firmware, full-stack apps, and cli tools.
+        </p>
+        <p>
+          i've worked on wearable biosensors, wireless protocols (ble, can, uart, i&#178;c),
+          and ml pipelines for research. i ship end-to-end: schematic &rarr; layout &rarr;
+          fab &rarr; firmware &rarr; software.
+        </p>
+        <div class="edu-block">
+          <div class="edu-tag">B.Sc. Computer Engineering</div>
+          <div class="edu-school">Mississippi State University</div>
+          <div class="edu-meta">GPA 3.84 &middot; Expected December 2027</div>
+
+        </div>
+      </div>
+
+      <div class="skills-col reveal reveal-delay-1">
+        <div class="skills-group">
+          <div class="skills-group-label">Hardware</div>
+          <div class="skills-list">
+            <span>ARM Cortex-M</span><span>KiCad / PCB</span><span>BLE</span>
+            <span>CAN / UART / I²C / SPI</span><span>Soldering</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <div class="skills-group-label">Firmware</div>
+          <div class="skills-list">
+            <span>C / C++</span><span>CircuitPython</span><span>Register-Level</span>
+            <span>nRF SDK</span><span>FreeRTOS</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <div class="skills-group-label">Software</div>
+          <div class="skills-list">
+            <span>Python</span><span>TypeScript</span><span>React / Next.js</span>
+            <span>Node.js</span><span>Scikit-Learn</span><span>Git / Linux</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ PROJECTS ══════════════ -->
+  <section id="projects">
+    <div class="sec-header reveal">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">things i've built</h2>
+      <div class="sec-line" aria-hidden="true"></div>
+    </div>
+
+    <div class="proj-group reveal">
+      <div class="proj-group-label">Hardware / Embedded</div>
+
+      <div class="proj-grid">
+        <a href="projects/smart-cane.html" class="proj-card reveal">
+          <div class="proj-card-img">
+            <img src="images/smart-cane/smart-cane.png" alt="smart cane" loading="lazy">
+          </div>
+          <div class="proj-card-body">
+            <h3>Smart Cane</h3>
+            <p>obstacle detection + weather alerts on esp32. split a single-loop design across both cores: sensing on one, wifi and speech on the other. fixed the blocking that starved the sensors.</p>
+            <div class="proj-card-tags">
+              <span>ESP32</span><span>FreeRTOS</span><span>C</span><span>WiFi</span><span>REST API</span><span>TTS</span>
+            </div>
+            <span class="proj-card-link">view project &rarr;</span>
+          </div>
+        </a>
+
+        <a href="projects/wirstwatch-bcs.html" class="proj-card reveal reveal-delay-1">
+          <div class="proj-card-img">
+            <img src="images/bcs-watch/bcs-watch.jpeg" alt="wristwatch biosensor" loading="lazy">
+          </div>
+          <div class="proj-card-body">
+            <h3>Wristwatch Biosensor</h3>
+            <p>wearable hub logging hr, spo2, temp, and imu data over ble. live pyqt dashboard on the pc side. custom pcb + enclosure.</p>
+            <div class="proj-card-tags">
+              <span>nRF52840</span><span>BLE</span><span>MAX30102</span><span>PyQt</span><span>KiCad</span>
+            </div>
+            <span class="proj-card-link">view project &rarr;</span>
+          </div>
+        </a>
+
+        <a href="projects/ear-wearable.html" class="proj-card reveal reveal-delay-2">
+          <div class="proj-card-img">
+            <img src="images/ear-wearable/thumbnail.png" alt="coretymp" loading="lazy">
+          </div>
+          <div class="proj-card-body">
+            <h3>CoreTymp</h3>
+            <p>ear-worn vitals monitor on a custom pcb. circuitpython firmware + ble/usb-c stack, plus a full pyqt6 desktop app with simultaneous multi-device ble, ota firmware updates, per-device config, and usb-c dock auto-sync.</p>
+            <div class="proj-card-tags">
+              <span>CircuitPython</span><span>PyQt6</span><span>BLE</span><span>USB-C</span><span>KiCad</span>
+            </div>
+            <span class="proj-card-link">details &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="proj-group reveal">
+      <div class="proj-group-label">Software / Web / Tools</div>
+
+      <div class="proj-grid">
+        <a href="projects/splitit-app.html" class="proj-card reveal">
+          <div class="proj-card-img">
+            <img src="images/splitit/thumbnail.png" alt="splitit" loading="lazy">
+          </div>
+          <div class="proj-card-body">
+            <h3>SplitIt</h3>
+            <p>bill-splitting app. scan a receipt, assign items per person, real-time sync. full-stack with supabase + next.js.</p>
+            <div class="proj-card-tags">
+              <span>Next.js</span><span>React</span><span>Supabase</span><span>Postgres</span>
+            </div>
+            <span class="proj-card-link">case study &rarr;</span>
+          </div>
+        </a>
+
+        <a href="projects/musicdl-cli.html" class="proj-card reveal reveal-delay-1">
+          <div class="proj-card-img">
+            <img src="images/musicdl-cli/0.png" alt="musicdl-cli" loading="lazy">
+          </div>
+          <div class="proj-card-body">
+            <h3>musicdl-cli</h3>
+            <p>cli tool for downloading spotify playlists as mp3s. parallel jobs, ffmpeg transcoding, id3 metadata tagging.</p>
+            <div class="proj-card-tags">
+              <span>TypeScript</span><span>Spotify API</span><span>FFmpeg</span><span>npm</span>
+            </div>
+            <span class="proj-card-link">npm &rarr;</span>
+          </div>
+        </a>
+
+        <a href="projects/linkscreen-extension.html" class="proj-card reveal reveal-delay-2">
+          <div class="proj-card-img">
+            <img src="images/jobf1/preview.png" alt="linkscreen" loading="lazy">
+          </div>
+          <div class="proj-card-body">
+            <h3>LinkScreen</h3>
+            <p>chrome extension that filters linkedin jobs by visa sponsorship, posting date, and keywords. one click, clean feed.</p>
+            <div class="proj-card-tags">
+              <span>Chrome MV3</span><span>JavaScript</span><span>DOM API</span>
+            </div>
+            <span class="proj-card-link">case study &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ EXPERIENCE ══════════════ -->
+  <section id="experience">
+    <div class="sec-header reveal">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">work experience</h2>
+      <div class="sec-line" aria-hidden="true"></div>
+    </div>
+
+    <div class="exp-timeline">
+
+      <!-- Mississippi State University — current grouped roles -->
+      <div class="exp-entry reveal">
+        <div class="exp-tl-dot exp-tl-dot--active"></div>
+        <div class="exp-card exp-card--active">
+          <div class="exp-card-top">
+            <img src="images/msu_logo.png" alt="Mississippi State University" class="exp-logo" loading="lazy">
+            <div>
+              <div class="exp-org-name">Mississippi State University</div>
+              <div class="exp-period">Part-time &middot; Jun 2025 &ndash; Present</div>
+            </div>
+          </div>
+          <div class="exp-subroles">
+            <div class="exp-subrole">
+              <div class="exp-subrole-head">
+                <div class="exp-role">Undergraduate Student Researcher</div>
+                <div class="exp-subrole-date">Aug 2025 &ndash; Present &middot; 11 mos</div>
+              </div>
+              <div class="exp-place">Civil &amp; Environmental Engineering &middot; Mississippi State, MS</div>
+              <p>VR training scenarios for the Richard A. Rula School of Civil and Environmental Engineering.</p>
+            </div>
+            <div class="exp-subrole">
+              <div class="exp-subrole-head">
+                <div class="exp-role">Undergraduate Mentor, AI &amp; Robotics</div>
+                <div class="exp-subrole-date">Jul 2025 &ndash; Present &middot; 1 yr</div>
+              </div>
+              <p>Mentoring high school students in AI and robotics: computer vision, Python, and embedded systems. NSF ITEST.</p>
+            </div>
+            <div class="exp-subrole">
+              <div class="exp-subrole-head">
+                <div class="exp-role">Undergraduate Student Researcher</div>
+                <div class="exp-subrole-date">Jun 2025 &ndash; Aug 2025 &middot; 3 mos</div>
+              </div>
+              <div class="exp-place">Building Construction Science &middot; Hybrid</div>
+              <p>Low-power wearable for stress and fatigue monitoring. custom PCB design, embedded firmware, and real-time BLE data processing.</p>
+              <div class="exp-tags"><span>Python</span><span>Arduino</span><span>BLE</span><span>PCB Design</span><span>Firmware</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hunter Engineering -->
+      <div class="exp-entry reveal reveal-delay-1">
+        <div class="exp-tl-dot"></div>
+        <div class="exp-card">
+          <div class="exp-card-top">
+            <img src="images/hunter_logo.png" alt="Hunter Engineering Company" class="exp-logo" loading="lazy">
+            <div>
+              <div class="exp-org-name">Hunter Engineering Company</div>
+              <div class="exp-period">Internship &middot; Jan 2025 &ndash; May 2025 &middot; 5 mos</div>
+            </div>
+          </div>
+          <div class="exp-role">Computer Engineering Co-op</div>
+          <div class="exp-place">Raymond, MS &middot; On-site</div>
+          <p>Automated cable testing and engineering workflows using PyQt, SQL, and Arduino. improved process efficiency and precision across production operations.</p>
+          <div class="exp-tags">
+            <span>Python</span><span>PyQt</span><span>SQL</span><span>Arduino</span><span>Automation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MSU Athlete Engineering -->
+      <div class="exp-entry reveal reveal-delay-2">
+        <div class="exp-tl-dot exp-tl-dot--active"></div>
+        <div class="exp-card exp-card--active">
+          <div class="exp-card-top">
+            <img src="images/msu_logo.png" alt="MSU Athlete Engineering" class="exp-logo" loading="lazy">
+            <div>
+              <div class="exp-org-name">MSU Athlete Engineering</div>
+              <div class="exp-period">Part-time &middot; Jun 2024 &ndash; Present &middot; 2 yrs 1 mo</div>
+            </div>
+          </div>
+          <div class="exp-role">Undergraduate Student Researcher</div>
+          <div class="exp-place">Mississippi State, MS &middot; On-site</div>
+          <p>Wearable systems for industrial athlete monitoring. custom firmware, BLE connectivity, and real-time PyQt visualization for multi-device data collection and analysis.</p>
+          <div class="exp-tags">
+            <span>CircuitPython</span><span>BLE</span><span>PCB Design</span><span>PyQt6</span><span>KiCad</span><span>Firmware</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MSU AI/ML Research -->
+      <div class="exp-entry reveal">
+        <div class="exp-tl-dot"></div>
+        <div class="exp-card">
+          <div class="exp-card-top">
+            <img src="images/msu_logo.png" alt="Mississippi State University" class="exp-logo" loading="lazy">
+            <div>
+              <div class="exp-org-name">Mississippi State University</div>
+              <div class="exp-period">Part-time &middot; Apr 2024 &ndash; Nov 2024 &middot; 8 mos</div>
+            </div>
+          </div>
+          <div class="exp-role">Undergraduate Research Assistant, AI/ML</div>
+          <div class="exp-place">Mississippi State, MS</div>
+          <p>Soil property prediction from NIR spectrometer data. data preprocessing, model development, and cross-validation using Cubist, PLSR, and Random Forest.</p>
+          <div class="exp-tags">
+            <span>Python</span><span>Scikit-Learn</span><span>Random Forest</span><span>Cubist</span><span>PLSR</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════ CONTACT ══════════════ -->
+  <section id="contact" class="contact-section">
+    <div class="sec-header reveal">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">get in touch</h2>
+      <div class="sec-line" aria-hidden="true"></div>
+    </div>
+
+    <div class="contact-body reveal">
+      <p>computer engineering student at mississippi state building at the hardware/software boundary. always down to talk embedded systems, pcb design, and what's next.</p>
+      <div class="contact-links">
+        <a href="mailto:abhinavdhakal2@gmail.com" class="contact-link">
+          <span class="contact-link-label">Email</span>
+          <span class="contact-link-val">abhinavdhakal2@gmail.com &rarr;</span>
+        </a>
+        <a href="https://github.com/abhinavdhakal" target="_blank" rel="noopener" class="contact-link">
+          <span class="contact-link-label">GitHub</span>
+          <span class="contact-link-val">github.com/abhinavdhakal &rarr;</span>
+        </a>
+        <a href="https://www.linkedin.com/in/abhinav-dhakal-813689203/" target="_blank" rel="noopener" class="contact-link">
+          <span class="contact-link-label">LinkedIn</span>
+          <span class="contact-link-val">Abhinav Dhakal &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>&copy; 2026 abhinav dhakal</span>
+    <span>computer engineering &middot; mississippi state</span>
+  </footer>
+
+</div><!-- /.main -->
+
+<script>
+/* ─── PROFILE PHOTO ─── */
+(function () {
+  const img = document.getElementById('profile-img');
+  if (!img) return;
+  const show = () => img.parentElement.classList.add('has-photo');
+  if (img.complete && img.naturalWidth > 0) show();
+  else img.addEventListener('load', show);
+})();
+
+/* ─── HEADER SCROLL STATE ─── */
+(function () {
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+})();
+
+/* ─── MOBILE NAV TOGGLE ─── */
+(function () {
+  const btn = document.getElementById('nav-toggle');
+  const drawer = document.getElementById('nav-drawer');
+  if (!btn || !drawer) return;
+  btn.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    btn.classList.toggle('open', open);
+  });
+  drawer.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => { drawer.classList.remove('open'); btn.classList.remove('open'); });
+  });
+})();
+
+/* ─── SCROLL REVEAL ─── */
+(function () {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+})();
+
+/* ─── SMOOTH SCROLL ─── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+</script>
+</body>
+</html>
